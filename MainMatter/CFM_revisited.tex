@@ -1,0 +1,132 @@
+\chapter{The capillary fluctuation method revisited}
+\label{ch:CFM}
+
+As discussed in detail in the previous chapter (\cref{sec:CFM}), the capillary fluctuation method is a technique that can be essentially divided in four ``steps''.
+\begin{enumerate}
+    \item \textbf{Defining an appropriate way to discriminate solid and liquid}. This is the very first step since the next goal will be that of ``locating'' in an atomistic system the dividing surface between the solid and the liquid phase.
+    
+    \item \textbf{Analysing the surface profile}. At this point we are able to distinguish atoms that belong to a solid--like environment and liquid--like ones; we can track down the position of the surface by collecting snapshots of its profile, $h$. The latter is in general a function of two variables, i.e.\ the coordinates (with respect to the chosen coordinate system) in the interface plane. At the end of the simulation, the profile function $h$ is Fourier transformed and an ensemble average is computed to obtain the so--called fluctuations spectrum.
+    
+    \item \textbf{Fitting the fluctuations spectrum}. Relations such as \cref{eqn:amplitudes,eqn:amplitudes_xy} give the explicit link between capillary fluctuations and surface stiffness $\sigma$. Through the fit of these non--linear models for different surfaces, we are able to completely determine the $\sigma$ tensor.
+    
+    \item \textbf{Extracting the anisotropy coefficients}. Since we know the relation between interface free energy and the stiffness and we have an approximation of the anisotropy of $\gamma$, we can analytically determine $\sigma$ from \cref{eqn:cubic_harmonics} and fit this against the value of the stiffness calculated previously. In this way we will obtain the two anisotropy coefficients  (here $\epsilon$ and $\delta$) and completely map out the dependence of $\gamma$ from the interface orientation.
+\end{enumerate}
+
+
+\section{The method}
+In this section we explain in full detail all the aforementioned steps, which build the framework of capillary fluctuation method we adopted for our calculations of the stiffness for a Lennard--Jones system,  devoting more attention to substantial differences with the original method developed by Asta.
+
+%\subsubsection{Solid or liquid}
+\subsection{Solid or liquid}
+As it has already been stressed, the very first requirement for a computational method whose aim is to study phase transitions or coexistence between different phases is a way of distinguishing particles belonging to the phases involved\footnote{Here we restrict ourselves to the case of solid and liquid, but it is clear that this prerequisite is completely general.}.
+
+In molecular simulations of this kind, it is widespread to make use of a more or less complicate function that depends on atomic coordinates and that can give a quantitative indication of the ``order'' of one atom's neighborhood: this class of functions are usually called \emph{order parameters}. Many of these functions have been developed in order to face different problems; probably, the most known order parameters are the \textit{Steinhardt--Nelson} functions of different orders: $Q_3$, $Q_4$ and $Q_6$~\cite{Steinhardt1983}.
+
+A common feature of all these order parameters is that they are some sort of average computed considering the coordinates of all the atoms and it should be intuitive that no function of this type is able to distinguish, for example, all the crystalline phases of a given system if they have different symmetry. In other words, a certain choice of an order parameter might be more suitable than another if one wants to study the environment of an HCP crystal rather than an FCC one.
+Since all our systems (Lennard--Jones and real metal alloys) show at least one FCC crystalline phase, we chose the order parameter adopted also by Angioletti--Uberti~\cite{Angioletti-Uberti2010} and BCheng~\cite{Cheng2015} in their metadynamics calculations of interface free energy. This order parameter (henceforth called \fcc, $\Phi$) is defined as
+\begin{equation}
+\label{eqn:fccubic}
+    \Phi(\bm{x}_i)=\frac{\sum_{j\neq i} C_r(\lvert \bm{x}_j-\bm{x}_i\rvert)\, C_{\alpha}(\bm{x}_j-\bm{x}_i) }{\sum_{j\neq i} C_r(\lvert \bm{x}_j-\bm{x}_i\rvert)}.
+\end{equation}
+The \fcc order parameter is a weighted average running over all pairs of atoms of an angular term ($C_{\alpha}$) and a ``weight'' which is a radial cutoff function ($C_r$) that ensures that $\Phi$ is a continuous function of all its arguments. The angular part can be specified using a set of Euler angles (by means of a Euler rotation matrix $\bm{R}$) and can be written as
+\begin{equation}
+\label{eqn:c_alpha}
+C^{(\varphi,\psi,\theta)}_{\alpha} (\bm{r}_{ij})= C_{\alpha}(\bm{R}^{(\varphi,\psi,\theta)}\cdot \bm{r}_{ij}).
+\end{equation}
+Advantages of \fcc order parameter over the mentioned Steinhardt's $Q$ functions are, mainly: the angular part $C_{\alpha}$ has well--defined peaks for the FCC environment; it is not rotationally invariant and thus it is be able to recognize crystal orientations consistent with the imposed periodic boundary conditions; it is relatively cheap to compute. It is be possible to construct a different form of $C_{\alpha}$ if one wanted to deal with a different crystal structure,
+and one simply has to rotate the function through the Euler matrix $\bm{R}$ in order to specify a different crystallographic orientation of the surface. The possibility of having an orientation--dependent order parameter is an essential ingredient of our method.
+
+The ``final'' $\Phi$ actually used in our simulations is subject to few other mathematical manipulations mainly aimed to obtain that the perfect FCC lattice corresponds to $\Phi=1$, while the average value for atoms in bulk liquid is zero\footnote{This is ensured by applying a linear scaling of the kind%
+\begin{equation*}
+    \Phi(i)= \frac{\Phi^0(i)-\Phi^0_l}{\Phi^0_s-\Phi^0_l},
+\end{equation*}
+where $s$ and $l$ indicate the average of $\Phi$ on a bulk solid and liquid system respectively, and $\Phi^0$ is the unscaled order parameter defined above.
+}. Lastly, since the distributions of such order parameter for a bulk solid system and a bulk liquid have a minimal amount of overlap (see \cref{fig:op-dist}), a non--linear switching function is applied to $\Phi$ in order to have a tunable and smooth variation from solid--like region to liquid--like\footnote{\label{ft:sf}In this case, the non--linear switching function applied has the form%
+\begin{equation*}
+    s(r)=\left[1+(2^{a/b}-1)\left( \frac{r-d_0}{r_0}\right)^a\right]^{-b/a},
+\end{equation*}
+where $r_0$ and $d_0$ are tunable parameters. For $r\le d_0\; s(r)=1$, while for $r>d_0$ the function decays smoothly to 0. 
+}.
+\begin{figure}[bt]
+    \centering
+    \includegraphics[width=.75\textwidth]{orderp-distribution}
+    \caption{The distributions of the \fcc order parameter for a bulk FCC crystal oriented with $\langle 100\rangle$ directions parallel to the axes of the simulation cell. The distributions are computed at the equilibrium melting temperature. The dashed line is a plot of the switching function applied~~\cite{Cheng2015}.}
+    \label{fig:op-dist}
+\end{figure}
+
+
+
+
+%\subsubsection{Looking for the dividing surface}
+\subsection{Looking for the dividing surface}
+In the work of Asta et al.\ they obtained the profile function of the dividing surface in the following way: they computed an FCC order parameter defined as $\phi=(1/12) \sum_i \lvert \bm{r}_i-\bm{r}_{fcc}\rvert^2$, where $\bm{r}_{fcc}$ is the distance between the central atom $i$ and its first 12 neighbours in the given orientation. Then, the $x$ direction in the simulation cell, parallel to the interface, is divided into slices and $\phi$ averaged over the slice is computed as a function of the $y$ direction (along the normal of the interface). As the solid--liquid interface is crossed, the value of $
+\phi$ changes abruptly and the interface can be accurately located. By collecting snapshots of this function during all the simulation, one ends up with the time--varying profile function $h(y,t)$, where both the space and time coordinates are discretized.
+
+The discrete nature of the profile function stems directly from the fact that the order parameter is a discrete quantity, since it assigns a numerical value to each atom. In turn, it means that the representation of the surface built in this way is highly sensitive on the $x$--width of the slices over which $\phi$ is averaged (i.e.\ the bin size). %Thus, this dividing surface will keep the atomistic
+
+In our approach, we followed the idea proposed by Willard and Chandler~\cite{WilChaJCP2010}. To identify the liquid--vapour interface in water systems such that the resulting surface is to all effects a continuous function, they built a coarse--grained density field by computing the convolution of the instantaneous density field with a chosen kernel function. In this case, the kernel functions are taken to be normalized Gaussians, which depend on one parameter ($\xi$, the Gaussian width). So, in mathematical terms
+\begin{equation}
+\label{eqn:density-field}
+    \begin{cases}
+        \rho(\bm{r},t)=\sum_i \delta(\bm{r}-\bm{r}_i(t)) \\
+        \kappa(\bm{r};\,\xi)= (2\pi\xi^2)^{-d/2} \exp{(-r^2/2\xi^2)}
+    \end{cases}
+    \xRightarrow{\text{convolution}}\quad
+    \overline{\rho}(\bm{r},t)=\sum_i \kappa( |\bm{r}-\bm{r}_i(t)| );\,\xi)
+\end{equation}
+Here $r$ is the magnitude of the distance vector $\bm{r}$ and $\xi$ is the coarse--graining length; $d$ stands for the dimensionality of the system. As we will discuss in the Results section, the importance of $\xi$ is that it controls the coarse nature of the continuous field obtained and it has to be chosen according to physical conditions under consideration.
+
+From this idea for a simple density field to an \textit{order parameter density field}, the step is really short: it suffices modifying the instantaneous atomistic ``density'' as follows
+\begin{equation}
+\label{eqn:op-field1}
+    \rho(\bm{r},t) \leadsto \rho_{\phi}(\bm{r},t)=\sum_i \phi_i \delta(\bm{r}-\bm{r}_i(t)),
+\end{equation}
+and the coarse--grained field needs to be properly normalized
+\begin{equation}
+\label{eqn:op-field2}
+    \overline{\rho}_{\phi}(\bm{r},t)= \frac{\sum_i \phi_i \kappa(\lvert \bm{r}-\bm{r}_i(t));\,\xi)}{\sum_i \kappa(\lvert \bm{r}-\bm{r}_i(t));\,\xi)}.
+\end{equation}
+Once $\xi$ is set, the dividing surface is defined to be the $(d-1)$--dimensional manifold $\bm{r}=\bm{s}$ for which
+\begin{equation}
+\label{eqn:field-equation}
+     \overline{\rho}_{\phi}(\bm{s},t)=\mathpzc{C},
+\end{equation}
+where $\mathpzc{C}$ is some constant value. In other words, the instantaneous interface between solid and liquid is the locus of points in space where the order parameter density field assumes the value of $\mathpzc{C}$ (sometimes called \textit{isovalue}). It is clear that the choice of this constant is arbitrary, but it should rely on some meaningful physical consideration. Since the coarse--grained field changes with time as molecular configurations change, the surface is a two--dimensional function which depends on time only through atomic coordinates: $\bm{s}(t)=\bm{s}(\{\bm{r}_i(t)\})$.
+
+For a given molecular configuration $\{\bm{r}_i\}$ at time $t$, \cref{eqn:field-equation} can be solved quickly with a variety of numerical algorithms, for example through interpolation on a spatial grid. If this equation is recast in the form $ \overline{\rho}_{\phi}(\bm{r},t)-\mathpzc{C}=0$, one among all the known root--finding algorithms can be exploited to solve it. We adopted the method due to Brent and Dekker\footnote{See {\ttfamily\url{https://en.wikipedia.org/wiki/Brent\%27s_method}}}, which has the reliability of the bisection method, but it is faster in convergence. 
+
+Once an entire simulation for a specific interface is analysed, the interface profile function is Fourier transformed to obtain its fluctuation spectrum. Practical details of the simulations will be given in the next section; here it is sufficient to note that we employed the 2D geometry so that we needed only two independent surfaces to get the full anisotropy through the stiffness tensor. To get fluctuations amplitudes that appears in \cref{eqn:amplitudes_xy}, $h(\bm{x})$, where $\bm{x}$ is the vector with components $(x,y)$, is Fourier transformed according to
+\begin{equation}
+\label{eqn:FT}
+    h(\bm{x},t)=\sum_{\bm{k}} A(\bm{k},t) \exp{(i\bm{k}\cdot\bm{x})}, 
+\end{equation}
+and $\bm{k}$ is the wave vector which takes the form $2\pi(j_x/L_x,\,j_y/L_y)$, with $j_x,\,j_y$ being non zero indexes and $L_x,\,L_y$ the size of the simulation cell in the interface plane.
+
+The last step is to compute the ensemble (time) average of the fluctuation spectrum\footnote{Again, practical details on how this average has been calculate will be given when discussing results. Here we just note that, since time is discretized by definition in a MD simulation, we only have snapshots of the fluctuation spectrum and the time interval between two of these is a multiple of the timestep used in the MD simulation. Since an observable in consecutive snapshots may show a correlated behaviour, we exploited a way of computing the average in order to estimate correctly also the error on this average.}, where with ``spectrum'' we refer to the square moduli of the complex Fourier amplitudes. %:$|A(\bm{k},t)|^2 \leadsto \langle |A(\bm{k})|^2 \rangle$.
+
+One last detail is necessary to discuss: how to fix the constant value $\mathpzc{C}$ in order to solve \cref{eqn:field-equation}. In the original paper where this method was introduced, the authors were using the method to provide useful and instructive pictures of liquid--vapour and liquid--protein interfaces, particularly with water. For the case of the liquid--vapour dividing surface, they fixed the constant to one--half the density of liquid water in their system. %As already said, this choice contains some degree of arbitrariness, but it is still reasonable, since it is well--known that
+
+In our case, a physically reasonable value for the constant would be the one that could clearly discriminate between a particle in a solid--like environment from one in the liquid--one. Unfortunately, as one can see from \cref{fig:op-dist}, there in no such sharp value. So, we firstly chose as $\mathpzc{C}$ the average value of the order parameter between an all solid system and an all liquid one, namely: $(\Phi_s+\Phi_l)/2$. However, we realized that such value was susceptible of appreciable changes if the interface was moving considerably due to fluctuations (larger in smaller cells) or if we changed the coarse--graining length $\xi$. Hence, we had the idea of transforming again the order parameter function by applying a second switching function: this function (see \cref{ft:sf}) was tuned so that the resulting order parameter had a really sharp change when traversing the diving surface; in this way, liquid atoms had a value of $\Phi$ very close to 0 and solid ones almost equal to 1. We could then fix the value of the constant to 0.5\footnote{Another small, but important detail hides in here: when computing the field as in \cref{eqn:op-field2}, the distance $|\bm{r}-\bm{r}_i|$ refers to a certain coordinate system with a fixed origin. It should be evident that changing the origin will influence the final result for $\rho_{\phi}$. So, in all our analysis, we fixed the origin by computing a weighted average position based on the values of the order parameter. Coordinates of the origin are defined according to
+\begin{equation*}
+    x_\alpha = \frac{1}{2\pi} \arctan \left[ \frac{ \sum_i w_i \Phi_i \sin\left( 2\pi x_{i,\alpha} \right) }{ \sum_i w_i \Phi_i \cos\left( 2\pi x_{i,\alpha} \right) } \right],
+\end{equation*}
+where $w_i$ are weights, $\Phi_i$ are the values of the order parameter and $x_{i,\alpha}$ the scaled Cartesian components of the position of the atoms. 
+All the analysis were run within the framework of the software \textsc{plumed}, with which is rather easy to compute such a quantity.}.
+
+
+
+%\subsubsection{Fitting capillary fluctuations spectrum}
+\subsection{Fitting capillary fluctuations spectrum}
+To obtain the values of the stiffness tensor $\sigma$, the only thing left is fitting the averaged fluctuation spectrum with respect to $k$--vector, following the prescription of \cref{eqn:amplitudes_xy}: $T_m$ is known and the cross sectional area $S$ is simply the product $L_x\times L_y$. The only substantial difference here is a multiplicative term added to the fitting model, which changes into
+\begin{equation}
+\label{eqn:fit-model}
+    \langle \lvert A(\bm{k}) \rvert^2 \rangle =\mathcal{P} \frac{\exp{(-k^2/2\xi^2)}}%
+    %{\bm{k}\cdot\bm{\sigma}\cdot\bm{k}},
+    %{\overline{k}^T\, \overline{\overline{\sigma}}\, \overline{k}},
+    {k_x^2\sigma_{11} + k_y^2\sigma_{22} +2k_x k_y\sigma_{12}},
+\end{equation}
+where $\mathcal{P}=k_BT_m/S$ is the constant prefactor. %and $\bm{\sigma}$ is a second order tensor.
+To explain why we added the exponential term, we recall that our representation of the surface is the result of a convolution of a Gaussian function with the order parameter density field. It is known that the Fourier transform of a convolution is the pointwise product of Fourier transforms and the Fourier transform of a Gaussian is again a Gaussian with a different width: this is the reason behind our modification of the fitting model.
+
+% Results
+\input{MainMatter/Results}

@@ -1,0 +1,133 @@
+\chapter{Modeling atomistic interactions}
+
+\section{The embedded atom method}
+In recent years, our knowledge of the atomic structure of solids and their physical properties has advanced considerably both from theoretical and experimental points of view. More versatile and powerful methods in computational science allowed the possibility of investigate more deeply properties and phenomena of condensed matter; this has been possible also thanks to the growing computers' power. From the experimental side, it is now possible to resolve with very high accuracy the atomic scale structure of complex system like interfaces, surfaces, and grain boundaries. Lastly, but not less important, the broad class of first principles calculations, such as the well--known density functional theory, are capable of explaining complex and basic properties that years ago were only took into account as approximations.
+
+Despite all this huge progress, many systems of interest for a variety of scientific fields are still too complex and demand reliable but approximate methods. All the relevant properties of matter in any of its forms arise from the interactions among its constituents, be them atoms, molecules or macromolecules such as proteins or polymers. A unique way of explaining all these possible interactions is both impossible and useless, because one would have to deal with an enormous quantity of informations.
+
+The very first approach to model interactions involves the class of pair potentials (the Lennard--Jones potential is the easiest example). Although this potentials can be useful to model very simple system or to give a rough approximation of some kind of fundamental
+interaction, the pair potential scheme has been shown to fail in describing the physics of metallic bonding. This kind of interaction is undoubtedly a fundamental one because of the vast numbers of elements and compounds that show metallic behaviour.
+
+Most of the questions regarding structure and thermodynamics of condensed matter system can be answered from the knowledge of the total energy. The total energy of a solid can be determined, at least in principle, by solving the many--electron Schr\"{o}dinger equation, but this problem is overwhelming in practice and some approximations are needed to reduce the complexity without loosing the important physics. The scheme of pair interactions is clearly the most extreme approximation and it easy to show why it falls short. If we take the cohesive energy to be a sum only over pair bonds,
+\begin{equation}
+    \label{eqn:pairbonds}
+    E_{\text{coh}}= \frac{1}{2} \sum_{i\neq j} V(R_{ij}),
+\end{equation}
+it is evident that bonds between atoms are independent of each other. This assumption is very simple and can be also very useful, but it has the major difficulty that it is not possible to show theoretically that the total energy can be written as a sum over pairs. The error stems from the fact that, in general, bonds between atoms are not independent of each other. To be more concrete, it is sufficient to look at a table of cohesive energy measured experimentally for crystal structures that differ only by the coordination $Z$ of a typical atom: the pair model of \cref{eqn:pairbonds} predicts that the cohesive energy scales linearly with $Z$ ($E_{\text{coh}} \propto -Z$), but in reality the energy scales more weakly with a power law like $-Z^{1/2}$: this means that the strength of an additional bond is not constant, but rather decreases with increasing $Z$.
+
+The very simple argument stated above seems to suggest that the key to understand many of the interesting problems in the structure of solids (and in particular of metals) lies in coordination--dependent interactions. It was with this idea in mind that Daw and Baskes in 1983~\cite{Daw1983EAM,Daw1984EAM} proposed the \textit{embedded atom model} (EAM). In this scheme, the total energy of a metal is a sum of energies obtained by inserting an atom into the local electron density produced by the remaining atoms of the system. Since we are dealing with charged particles, there is an additional pair term that takes into account electrostatic interaction. The expression for the total energy $E_i$ of the $i$--th atom within EAM is
+\begin{equation}
+    \label{eqn:EAM1}
+    %E_{\text{coh}}= \sum_i G_i \left( \sum_{j\neq i} \rho^a_j (R_{ij}) \right) + \frac{1}{2} \sum_{j\neq i} U_{ij} (R_{ij}).
+    E_i= F_\alpha\left(\sum_{j\neq i} \rho_\beta (r_{ij}) \right) + \frac{1}{2} \sum_{j\neq i} \phi_{\alpha\beta}(r_{ij}).
+\end{equation}
+Here $F$ is the embedding energy, defined as the interaction of the atom $i$ of type $\alpha$ with the background electron gas; $\rho_\beta$ is the spherically averaged atom electron density and $\phi$ is an electrostatic, two--atom interaction. The background density for each atom is determined by evaluating at its nucleus the superposition of atomic density tails from the other atoms.
+
+In 1984, Finnis and Sinclair~\cite{Finnis1984EAM} proposed a more general way of computing the total energy term $E_i$,
+\begin{equation}
+    \label{eqn:EAM2}
+    E_i= F_\alpha\left(\sum_{j\neq i} \rho_{\alpha\beta} (r_{ij}) \right) + \frac{1}{2} \sum_{j\neq i} \phi_{\alpha\beta}(r_{ij}).
+\end{equation}
+This has the same form as \cref{eqn:EAM1}, except that $\rho$ is now a functional specific to the atomic types of both atoms $i$ and $j$. In this way distinct  elements can contribute differently to the total electron density at an atomic site depending on the chemical species of the element at that particular atomic site.
+
+One interesting aspect of EAM is its physical description of the metallic bonding: each atom is embedded in an host electron gas created by its neighboring atoms. The atom--host interaction is inherently more complex than the simple two--body picture of the pair--bond model. In this way the embedding functions $G$ can incorporate some important effects which arise only from considering many--body interactions.
+
+Currently, EAM is the first choice for doing semi--empirical calculations in close--packed metals and related compounds such as alloys. The EAM combines the computational simplicity needed for large systems with a physical description of the underlying interactions that includes many--body effects, which are completely ignored in a pair--bond model.
+
+To conclude this very quick theoretical overview of EAM, in the review work of Das, Foiles and Baskes~\cite{Daw1993REVIEW} a series of examples for which the EAM has been successfully applied are cited and thoroughly discussed.
+
+
+
+
+
+
+\section{Applications to alloys}
+EAM potentials have been applied to study various properties of alloyed metals, such as the compositional variations that can occur near defects. The main advantage of EAM over other approaches is that the interaction of one atom with the electron gas does not depend on the origin of the latter, but it is rather assumed to depend only on the local electron density. A change in the chemical identity of the neighbors enters the problem through a change in the electron densities (i.e.\ the functions $\rho_{\alpha\beta}$, in the generalized expression); this means that the embedding function used for for pure metals should still be valid for the case of alloys. However, even though in the original work of Daw and Baskes~\cite{Daw1984EAM} were given mixing rules to obtain $\rho_{\alpha\beta}$ and $\phi_{\alpha\beta}$ for any alloy once known the corresponding functions for the elemental systems, it was soon made clear that this approximation was not enough to produce reliable and transferable potentials with the desired accuracy and the EAM was then revisited to include directly the fit to properties of the complex system of interest.
+
+
+One should also be aware of possible errors when applying EAM potentials to complex systems like alloys. Large charge transfers in an alloy will be poorly described in the EAM, as well any effect arising from subtleties of the Fermi surface, that are completely ignore in the EAM.
+
+This section will present some useful and recent applications of the EAM to study different properties of metal alloys, with a particular focus on nickel and gold alloys.
+
+
+\subsection{Nickel ternary alloys}
+As described previously, Ni--based superalloys are subject of many studies for their high performance applications as structural materials with excellent strength and creep resistance. These alloys are generally made of Ni, Ti and Al and the precipitation of the $\gamma'$ ordered phase within the Ni FCC matrix is mainly responsible for the high strength. Also, plasticity response is thought to be due to formations of defects such as vacancies and impurities that affect dislocations motion. For all these reasons, it is interesting to have a method to simulate and understand the underlying processes on the atomic--scale.
+
+The study of nickel ternary alloys typically requires reliable potentials to model interactions between Ni--Al, Ni--Ti and Al--Ti. The Ni--Al system has been widely studied and several EAM potentials have been developed~\cite{Pasianot1994:Farkas3}, based both on the \ce{Ni3Al} system~\cite{Foiles1987:Farkas5,Voter1987:Farkas4} and on \ce{NiAl} system~\cite{Farkas1995:Farkas7,Rao1991:Farkas6}. For this ternary system some complication arise from the Ti--Al case, for which the EAM fails in reproducing correctly the elastic constants due to the presence of non central forces\footnote{Ref.~6 ibidem}. Farkas~\cite{Farkas1994} has developed and compared interatomic potentials for the Ti--Al system that included the non--central terms as well as a best possible potential without the angular term. In that work, Farkas showed that the main contribution of including central interactions was in the elastic constants, while total energy and stacking faults energies of various phases of Ti--Al system varied much less.
+
+When dealing with alloys of three (or even four) components, the EAM presents a practical advantage: the pairwise term involves only two atoms at a time and therefore can be calculated from the binary interactions involved in the ternary system in question. The embedding functions are defined separately for each of the components of the system and does not require any additional fitting beyond that done for pure components. Also the local electronic density depends only on the strength of each individual contributions of each of the three components. It follows that if EAM potentials are available for the three binary systems involved in a particular ternary, it is in theory possible to describe also the ternary system. The only requirement is that the interatomic interaction used for each of the pure components in the description of the two binaries involving that constituent be the same.
+
+In the work of Mishin in 2004~\cite{Mishin2004}, a new EAM potential has been developed for the \ce{Ni3Al} system, by fitting to both experimental and first--principles data. A series of recent works, aimed also to understanding the role of defects formation in plasticity response of Ni ternary alloys~\cite{Bianchini2016}, have considered this new potential to be among the most reliable ones for modeling $\gamma+\gamma'$ phases on Ni superalloys, with good accuracy in predicting $\gamma/\gamma'$ interface energy.
+
+Lastly, a ternary potential for the system Ni--Al--W has been constructed by Fan et al.~\cite{Fan2015} for the Ni--based single crystal superalloys to model the doping of Ni--Al system with tungsten, also comparing results with other calculations when the doping element were Re or Co\footnote{W, Re, Co, Mo and Va are common additives for Ni superalloys since they behave as solid--solution strengtheners both for $\gamma$ and $\gamma'$ phases.}.
+
+Results obtained with this potential were in good agreement with experiment; for example, the potential predicts that the solute atoms of W does not form cluster within the $\gamma$ phase, which is consistent with experiments. Also, increasing the addition of W, the lattice misfit between the two phases decreases and the elastic constants of the $\gamma'$ phase increase.
+
+To conclude this part on EAM applied to Ni and alloys, two tables are reported: the first one summarizes the results of Mishin~\cite{Mishin2004} on lattice properties of Ni and Al calculated with the EAM potential there developed; in the table are also present experimental data~\cite{Mishin2004:REF32,Mishin2004:REF33,Mishin2004:REF34}. The second one shows the predicted equilibrium energies of different structures of Ni and Al with the EAM potential of Mishin, in comparison with first--principles calculations.
+\begin{table}[t]
+    \centering
+    \caption{Lattice properties of Ni and Al calculated with the potential developed by Mishin~\cite{Mishin2004} in comparison with experimental data.}
+    \begin{tabular}{lSSSS}
+        \toprule
+        \multirow{2}*{Property} & \multicolumn{2}{c}{Ni} & \multicolumn{2}{c}{Al} \\
+        \cmidrule(l{2pt}r{2pt}){2-3} \cmidrule(l{2pt}r{2pt}){4-5}
+         & \text{Experiment} & \text{EAM} &  \text{Experiment} & \text{EAM} \\
+         \midrule
+         $a_0$ (\si{nm}) & 0.352 & 0.352 & 0.405 & 0.405 \\
+         $E_0$ (\si{\electronvolt}) & -4.45 & -4.45 & -3.36 & -3.36 \\[2ex]
+%
+         \text{\itshape Elastic constants} (\si{\giga\pascal}): & & & & \\
+         $B$ & 181.0 & 181.0 & 79.0 & 79.0 \\
+         $c_{11}$ & 246.5 & 241.3 & 114.0 & 116.8 \\
+         $c_{12}$ & 147.3 & 150.8 & 61.9 & 60.1 \\
+         $c_{44}$ & 124.7 & 127.3 & 31.6 & 31.7 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:NiEAM}
+\end{table}
+%
+\begin{table}[b]
+    \centering
+    \caption{Equilibrium energies (in \si{eV}) for different stable structures of Ni and Al predicted by the EAM potential developed by Mishin~\cite{Mishin2004}, compared to first--principles calculations.}
+    \begin{tabular}{lSSSS}
+        \toprule
+        \multirow{2}*{Structure} & \multicolumn{2}{c}{Ni} & \multicolumn{2}{c}{Al} \\
+        \cmidrule(l{2pt}r{3pt}){2-3} \cmidrule(l{2pt}r{3pt}){4-5}
+         & \text{Ab initio} & \text{EAM} &  \text{Ab initio} & \text{EAM} \\
+         \midrule
+          \text{HCP} & 0.03 & 0.03 & 0.04 & 0.03 \\
+          \text{BCC} & 0.11 & 0.07 & 0.09 & 0.09 \\
+          $L1_2$ & 0.66 & 0.54 & 0.27 & 0.33 \\
+          \text{SC} & 1.00 & 0.72 & 0.36 & 0.30 \\
+          \text{Diamond} & 1.94 & 1.42 & 0.75 & 0.88 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:NiAlstructures}
+\end{table}
+
+
+
+\subsection{Gold and its alloys}
+Literature on EAM potential on gold and related alloys is less numerous than nickel (or titanium), especially when going beyond the simple metal system. Nevertheless, as we explained previously, the EAM framework allows to combine different single--element potentials, that should reproduce as best as possible the interested properties, and build from these an effective potential for the complex system under study, for example a ternary alloy.
+
+With this in mind, the table below is taken from the recent work of Grochola et al.~\cite{Grochola2005}, in which a new EAM potential for gold is developed, using an improved methodology to fit to high--temperature solid lattice constants and liquid densities. This new potential shows an appreciable overall improvement in the agreement with several experimental data, in comparison with previous potentials of Foiles et al.~\cite{Foiles1986:EAMfcc}, Johnson~\cite{Jonhson1988:EAM} and the glue model potential of Ercolessi et al~\cite{Ercolessi1988}. Grochola and coworkers emphasize how attempting a fit to \textit{all} the properties for which an experimental data is available is by far unsuccessful. However, the results obtained for gold suggest that for other metal species further overall improvements in potentials may still be possible within the EAM framework with an improved fitting methodology.
+%
+\begin{table}[tb]
+    \centering
+    \caption{Comparison table between predicted values of EAM potentials for gold discussed (and referenced) in this section. The table is partially reproduced from Grochola et al~\cite{Grochola2005}. Units: elastic constants in \si{\giga\pascal}, energies in \si{eV} and lattice parameters in \si{\angstrom}.}
+    \begin{tabular}{lSSSSS}
+        \toprule
+         \multirow{2}*{Property} & \multicolumn{4}{c}{Potential developep by} & \\
+         \cmidrule(lr){2-5}
+                & \text{Grochola} & \text{Ercolassi} &  \text{Johnson} & \text{Foiles} & \text{Exp.} \\
+         \midrule
+          \text{Cohesive energy} & -3.924 & -3.78 & -3.930 & -3.927 & -3.93 \\
+          \text{Lattice constant} & 4.0701 & 4.0704 & 4.0806 & 4.0805 & 4.07 \\
+          \text{Bulk modulus} & 1.8026 & 1.8037 & 1.6987 & 1.6673 & 1.803 \\
+          $c_{11}-c_{12}$ & 0.3207 & 0.5998 & 0.2687 & 0.2454 & 0.319 \\
+          $c_{44}$ & 0.4594 & 0.5998 & 0.4069 & 0.4524 & 0.454 \\
+          \text{Melting point (\si{\kelvin})} & 1159 & 1338 & 1053 & 1121 & 1337 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:GoldEAM}
+\end{table}

@@ -1,0 +1,205 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX root = ../Main.tex
+
+\chapter{Additive manufacturing}
+
+\section{Introduction to Additive Manufacturing}
+The term ``additive manufacturing'' (AM) can be considered as an evolution of the ``rapid prototyping'' process, used in various industries to indicate a process of rapidly creating a system or part of it before the final release and commercialization (i.e.\ a prototype). However, recently a significant improvement in the output of these processes has shown that there is a much closer link with the final product and the new name of ``additive manufacturing'' has been chosen.
+
+In few words, the basic feature of the AM technology is the possibility to design an object of interest by means of a 3D Computer Aided Design (CAD) software and then fabricate it directly with almost no need of process planning. Though a very complicated process, AM has the advantage to significantly simplify the work of producing complex 3D objects directly from a software project. Other manufacturing process would require a detailed analysis of the object to determine, for example, the order in which each part has to be built and also the assembly phase.
+
+The key principle to understand how AM works is that the object is built layer by layer, where each layer is a thin cross--section of the object itself derived from the CAD data. However, in real world, each layer must have a finite thickness and so the resulting object will only be an approximation of the original (virtual) project.
+
+At its early stage, AM was used to build visualization models for products as they were being developed. From this initial purpose, AM technology greatly improved as knowledge of materials used and accuracy of the process improved as well. When AM is used in conjunction with other technologies to form a process chain, it can significantly reduce times and costs. Furthermore, the possibility to use high--power lasers has meant that desired objects can be directly made in a broad variety of materials, particularly metals and related ones, thus extending the application range.
+
+%Industrial sectors interested in developing/using AM technologies are aerospace, automotive, rapid tooling and biomedical, just to mention a few.
+
+AM technologies have been described as a very revolution in product development and manufacturing. Moreover, results obtained with AM suggest that this technology could actually redefine what we mean today by a ``manufacturing process''. In order to (try to) explain these enthusiastic forecasts, we need to remark what are the advantages of AM technologies. First, we should emphasize again the ``rapid'' character of this process: it is not just in term of time needed to built an object, but all the development process experiences a speedup, mainly because we are using computers throughout. This is possible thanks to the fact that the transfer from the virtual project to the AM machine is relatively seamless and does not require nearly any interpretation of the design intent (i.e.\ knowing what functionality the object should have, which influences the way it has to be built).
+
+Not least important is the reduction of the number of process steps. Despite the possible complexity of objects to be built, an AM process is usually performed in one single step; other manufacturing processes would require a particular sequence of multiple and/or iterative steps to be carried out and even a relatively simple change in the project may require significant modification in the fabrication process and, in turn, the time required increases.
+
+
+
+
+
+\section{Manufacturing processes}
+As opposed to conventional machining processes, based essentially on material removal, AM relies on the idea of ``material incremental manufacturing''. Thus, a typical AM process involves a number of steps which can lead from the virtual description of the object to the physical resultant one.
+
+Starting from the CAD model of the object to produce, the second step is converting the virtual data to a format accepted by the AM machine; nearly every AM apparatus can read from a file format known as STL (``STereo Lithography''), in which the original CAD model is represented in terms of its external surfaces. Transferring virtual data to the machine also means to ensure that the object has the correct size, position and orientation for building. Then, a setup phase must be done: such settings relate to the building parameters like materials characteristics, energy source, layer thickness and timings.
+The next step is the real building phase, which is mainly an automated process. Lastly, the object has to be removed from the machine and sometimes it may require a ``post--processing phase'' before it can be ready to use.
+
+The current research focus of AM techniques is to produce complex shaped functional metallic components, including metals, alloys and metal matrix composites in order to meet the demanding requirements of several important industrial sectors, such as aerospace, biomedical and rapid tooling. For this class of applications, AM components are actually used as real production parts, with particular microstructural and mechanical properties. For the fabrication of these components to be cost effective and as accurate as possible, three typical laser based processes have been developed: these are \emph{laser sintering} (LS), \emph{laser melting} (LM) and \emph{laser metal deposition} (LMD). Since a variety of metals and related materials can be processed, these AM techniques are regarded as the most versatile. However, laser based AM generally involves complex out--of--equilibrium physical and chemical metallurgical process, in which heat and mass transfer can occur in different modes~\cites{GuReview54}{GuReview55}, sometimes together with chemical reactions~\cites{GuReview57}{GuReview58}.% As supported by several results in literature, 
+The complex metallurgical phenomena that occur during AM processing are both strongly material %(for a powder, this means chemical constituents, shape and particle size, density, flowability) 
+and process dependent. %(e.g.\ laser type and power, spot size, scan speed, powder layer thickness).
+Therefore, gaining a deeper and more detailed understanding of the out--of--equilibrium transformation the material undergoes is necessary to have more control on methods of laser processing, in order to achieve the desired microstructural and mechanical properties of the resultant product.
+
+Although all laser additive manufacturing processes share the same philosophy of incremental manufacturing, each techniques has its specific characteristics in terms of which materials can be used and processing details (e.g.\ laser type). We shall now briefly underline some interesting aspects about LS and LM techniques, with a more in--depth focus on the latter as it is the main manufacturing process we are interested in.
+
+\subsection{Laser sintering}
+Firstly, we can distinguish LS and the other two techniques (LM, LMD) by the fact that the latter imply a complete melting of the powder during the process, while with the former the powder undergoes only a partial melting. As a consequence, powder to be processed with LS must have more than one constituent and each with a different melting point. The multicomponent powder mixtures are typically composed of an high melting point metallic component as the structural metal and a low melting point metallic component as a binder.
+%The operative temperature is chosen carefully between these two different melting temperatures by adjusting laser source parameters.
+In contrast with pure metal powders, prealloyed powders exhibit temperature range where both solid and liquid phases coexist during the process; as laser parameters are optimized, the optimal temperature should be within this range. Densification and consolidation of this semisolid system occur as a results of the rearrangement of particles still in the solid phase by the influence of the capillary forces exerted by the liquid phase. %An important aspect related to laser sintering of prealloyed powders is that it needs a strict control of laser processing parameters to reach the right temperature range in which phase coexistence occurs. However, due to the localised and rapid nature of the thermal cycle during the process, controlling the temperature represents a remarkable difficulty and processing problems tend to occur in using LS; this, in turn, makes necessary the aforementioned post--processing treatments.
+
+\subsection{Laser melting\label{sub:LM}}
+With \textit{laser melting} (also known as \textit{selective laser melting}) the powder, be it a pure metal or an alloy, is brought far above the melting point.
+%Typical issues of LS are absent in the similar technique of \emph{laser melting}, since the powder (be it a pure metal or an alloy) is brought far above the melting point.
+The full melting is made possible by the improvement in laser processing conditions, such as higher laser energy, smaller spot size, reduced layers thickness. One considerable step ahead of LM is the possibility to process also pure non--ferrous metals, such as Ni, Ti, Cu, Al\footnote{Actually, aluminum is subject to other issues related to its high reflectivity and known susceptibility to oxidation.} which cannot be well processed with LS mainly due to their high viscosity.
+
+Currently, LM is used to manufacture functional prototypes and to build up final parts directly. The tool and mould--making industry is a typical example of a branch producing final parts in small batches. Thanks to its almost infinite geometrical freedom, LM is applied to manufacture tooling inserts with particularly complex shapes that would require too many steps with a traditional techique.
+
+Medical technolgy is another field exploting the possibility of building through LM an object with almost any conceivable shape. Examples are hip implants or surgical instruments out of titanium alloys as well as dental restorations out of cobalt chromium.
+
+Some known drawbacks of LM are the requirement of an high power laser as source and the fact that thin powder layer thickness requires longer building times. Moreover, as the powder completely melts and then solidifies again, a large degree of thermal deformation is possible, thus leading to the accumulation of stresses in the resultant products.
+The high temperature gradients which the processed part undergoes during the laser interaction are substantially responsible of crack formation and delamination of produced parts~\cite{Kempen2013} (\cref{fig:stress-formation}).
+These problems are especially prevalent in ceramic materials. Ceramics require very high melting temperatures and have very low thermal conductivity, resulting in very high thermal gradient during the process. Combined with its low fracture toughness, ceramics present a difficult challenge to be used as a material processed through LM.
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=.85\textwidth]{laser-stresses}
+    \caption{Schematic picture showing the temperature gradient mechanism leading to crack formation and subsequent delamination of the part~\cite{Kempen2013}.}
+    \label{fig:stress-formation}
+\end{figure}
+
+%Another common issue is related to melt instabilities at certain conditions, which can lead to final products with an undesirable degree of internal porosity.
+
+Another relevant issue typical of LM is the phenomenon called \textit{balling}: it happens when molten metal forms spheroidal beads due to poor wetting of the preceding layer, which in turn is caused by surface tension. Balling is an obstacle to the formation of of continuous melt lines, leading to rough and bead--shaped surfaces. In more severe cases, balling may aggravate subsequent layers formation and cause LM to literally ``jam'' the powder coating mechanism resulting in large metallic drops that extend above the powder bed~\cite{Yap2015}.
+Das and Kruth~\cite{Das2003} have explained that the formation of oxide film on a layer impedes effective bonding with the subsequent one. This is mainly due to the fact that oxide films show poor wettability with respect to liquid metals in absence of a chemical reaction.
+One possible solution to this phenomenon is carrying out the manufacturing process under protective atmosphere, using high purity inert gases.
+
+
+
+
+\section{Materials}
+All the additive manufacturing technique described above can be applied, on theoretical grounds, to metallic materials in any form as well as to other classes of materials (see \cref{fig:materials-chart}). For the purposes of this report, we shall limit the discussion to two classes: pure metals and alloys powder. In the last part of this section, we describe in a more detailed way three specific metal alloys of particular interest to companies we collaborate with.
+\begin{figure}[bt]
+    \centering
+    \includegraphics[width=0.5\textwidth]{materials-chart}
+    \caption{Research interests on LM manufacturing of different materials, based on publications indexed by Web Of Science and ScienceDirect from 1999 to 2014. From \cite{Yap2015}.}
+    \label{fig:materials-chart}
+\end{figure}
+
+\subsection{Common classes of materials}
+\subsubsection{Pure metals}
+Pure metals have been applied for various AM processes since the beginning. However, they are no more the focus of future development of AM technology mainly because of two reasons: firstly, pure metals are known to have relatively poor mechanical properties and, from a chemical point of view, they are more prone to corrosion and/or oxidation. Secondly, early attempts to processing pure metals with the laser sintering technique have been largely unsuccessful (i.e.\ poor overall quality of final products) and a real improvement has been possible only with first successful applications of LM. For example~\cite{Fischer2004}, LS processing of pure Ti samples showed that final products typically has an heterogeneous microstructure, which consists of cores of unmelted powder grains, melted surface of grains and residual voids; this means that the density of parts so obtained can be quite far from the level required to ensure good mechanical properties. For these reasons, currently industrial applications moved from LS to LM or LMD to build nonferrous pure metals components. It is worth noting, however, that recent studies~\cites{Krishna2007}{Xue2007} on a partial melting mechanism of pure metals such as Ti and Ta have demonstrated the interesting possibility of producing complex shaped porous structures with functionally graded porosity used for biomedical applications.
+
+\subsubsection{Alloys powder}
+The majority of the actual research (and subsequent applications) has been focused on powder alloys, based on metals such as Ti, Ni and Fe. Additive manufacturing of aluminum--based alloys might be the next research step, in order to face the difficulties related to the processing of nonferrous alloys with high reflectivity to laser energy. Almost all the work on AM of alloys powder is based on a complete melting mechanism, thus adopting the techniques of LS or LMD. Therefore, high laser source power is generally required to yield good bonding mechanism and obtain fully dense parts (excepts for porous materials if needed). Examples of lasers used for this purpose are \ce{CO2} powered lasers, Nd:YAG and fibre lasers. Besides the setup of the processing parameters, residual stresses and microstructures are two important aspects to take into account, as they are strongly influenced by large undercooling degree during rapid solidification, after the laser source has generated the molten pool. As proposed by Abe et al.~\cite{abe+01jmatproctech}, a possible way to solve these issues is the use of a dual laser scanning system; essentially, in this way one of the two laser can be used during a "preheating" phase before the actual melting or after the latter in a ``reheating'' phase.
+
+%\subsubsection{Metal matrix composites}
+%Metal matrix composites (MMC) can be classified as multicomponent systems, in which the metal acts as the binder while the ceramic material is the structural one. The idea of mixing metal and ceramic reinforcement is one of the most common practice in modern material science: putting together different materials to exploit the advantages of both and obtain a multicomponent system with new properties. MMC in fact exhibits an optimum combination between a simple metal matrix and stiffer and stronger ceramic material. Usually, MMC powders are obtained by mechanically alloying a mixture of different powder components (for example, with the technique called ``ball milling''\footnote{\textit{cit. 202 from Gu et al.}}). One of the most studied metal matrix composite for AM is \ce{WC}--\ce{Co} (tungsten carbide and cobalt)\footnote{\textit{cit. 203--207}}, since even with LS high density parts can be obtained, comparable with conventionally sintered hard metals.
+
+%MMC just described are also called \emph{ex situ} MMC, because the ceramic reinforcing particles are added separately to the metal matrix. Recently, using the very AM technology, there has been the development of novel \emph{in situ} MMCs, in which the constitutions are synthesized directly during the process by chemical reactions. In this way, MMCs are thermodynamically stable systems and thus more suitable for high temperature applications. Moreover, interfaces between ceramic and metal have a smaller surface roughness, yielding to stronger interfacial bonding and in turn optimal mechanical properties of the final products\footnote{\textit{cit. 225}}.
+
+
+
+%\subsection{Ni, Ti and Au based alloys}
+\subsection{Nickel based superalloys}
+A superalloy is a metallic alloy which can be used at high temperatures, often in excess of the absolute melting temperature. Resistance to creep and oxidation are the design criteria of prime interest. Superalloys can be based on iron, cobalt or nickel, with the latter being widely studied as best suited many industrial, high--performance applications such those required in the aerospace field.
+
+The fundamental solutes in nickel based superalloys are aluminium and titanium, with a total concentration which is typically less than 10 atomic percent. This generates a two--phase equilibrium microstructure, consisting of gamma ($\gamma$) and gamma--prime ($\gamma'$) phases. It is the $\gamma'$ which is largely responsible for the elevated temperature strength of the material and its incredible resistance to creep deformation. The amount of $\gamma'$ depends on the chemical composition and temperature.%, as illustrated in the ternary phase diagrams below.
+
+The $\gamma$ phase is a solid solution with a Face Centered Cubic lattice and a random distribution of the different species of atoms. By contrast, $\gamma'$ has a simple cubic lattice in which the nickel atoms are at the face-centres and the aluminium or titanium atoms at the cube corners, as the following picture shows schematically.
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Ni_structures}
+    \caption{On the right, the structure of the $\gamma$ phase, a solid solution of Ni and Al atoms. The left scheme is the structure of the $\gamma'$. From: {\ttfamily\url{http://www.eng-atoms.msm.cam.ac.uk/}}}
+    \label{fig:Ni_struct}
+\end{figure}
+
+This atomic arrangement has the chemical formula \ce{Ni3Al} or \ce{Ni3Ti}. However, as can be seen in the following phase diagram at \SI{1573}{K}, from the ($\gamma$+$\gamma'$)/$\gamma'$ phase boundary on the ternary sections of the Ni, Al, Ti  the phase is not strictly stoichiometric: there may exist an excess of vacancies on one of the sublattices which leads to deviations from stoichiometry or substitutional defects may be present, i.e.\ some of the Ni atom may occupy Al sites or vice--versa. 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.4\textwidth]{TernaryPhase}
+    \caption{Ni-Al-Ti ternary phase diagram at \SI{1573}{K} with the $\gamma$, $\gamma'$ and coexistence regions indicated. From From: {\ttfamily\url{http://www.eng-atoms.msm.cam.ac.uk/}}}
+    \label{fig:Ni_phase}
+\end{figure}
+
+One of the most important properties of these alloys is their strength up to very high temperatures. More precisely, these alloys show high yield strengths (usually denoted by $\sigma_y$) and at first these values are independent on temperature. An explanation of this peculiar property lies in the structure of the two phases: both have a cubic lattice with similar lattice parameters and the $\gamma$ phase forms the matrix in which the $\gamma'$ precipitates. In this ``transition'' cubic symmetry is preserved and thus cell edges of the $\gamma'$ are exactly parallel to the corresponding edges of the $\gamma$ phase. Furthermore, because their lattice parameters are similar, when the precipitate size is small, there is a little lattice misfit between the two phases . Dislocations in the $\gamma$ nevertheless find it difficult to penetrate $\gamma'$, partly because the latter is an atomically ordered phase. The order interferes with dislocation motion and hence strengthens the alloy.
+
+Also the mismatch between the lattice parameters of the two phase plays quite an important role: it promotes the stability of the microstructure at high temperature. This is mainly due to the fact that the $\gamma$ and the $\gamma'$ belong to almost equal crystal structure and thus the $\gamma/\gamma'$ interface energy is quite low. The mechanism of precipitate coarsening (i.e.\ the Oswald ripening) is thermodynamically driven by the minimisation of the interface energy and therefore the more coherent is the interface (i.e.\ the smaller its surface free energy), the more stable is the microstructure, because especially at high temperature it does not happen that a precipitate of a solid phase grows at the expense of another one.
+
+Commercial superalloys contain more than just Ni, Al or Ti. Essential resistance to oxidation is promoted also by the presence of chromium besides aluminum and small quantities of yttrium help the oxide layer to be commensurate with the substrate. Furthermore, when dealing with polycrystalline superalloys the addition of boron and zirconium results in reducing the grain boundary energy, which in turn improve overall creep strength. There are, naturally, limits to the concentrations of these element that can be added without inducing precipitation or promoting the formation of brittle phases.
+
+
+\subsection{Titanium alloys}
+Titanium alloys are among the most important of the advanced materials that are essential in several fields of applications, from aerospace to biomedical. This is because of an excellent combination between mechanical properties and, for example, a formidable resistance to corrosion exhibited by titanium alloys. On the other hand, the high cost of production of these alloys compared to competing materials is one of the main reasons negating their widespread use.
+
+Like a number of other metals titanium can crystallize in various crystal structures. The complete transformation from one into another crystal structure is called ``allotropic transformation''.
+
+Pure titanium, as well as the majority of titanium alloys, crystallizes at low temperatures in a modified ideally hexagonal close packed structure, called $\alpha$ titanium. At high temperatures, however, the body-centered cubic structure is stable and is referred to as $\beta$ titanium. The $\alpha-\beta$ transition temperature for pure titanium is \SI{882}{\celsius}. The atomic unit cells of the hexagonal close packed (hcp) $\alpha$ titanium and the body-centered cubic (bcc) $\beta$ titanium are schematically shown in Fig.~\ref{fig:Ti_structures} with their most densely packed planes and directions highlighted.
+The existence of the two different crystal structures and the corresponding allotropic transformation temperature is of central importance since they are the basis for the large variety of properties achieved by titanium alloys.
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=.6\textwidth]{Ti_structures}
+    \caption{Crystal structure of HCP $\alpha$ and BCC $\beta$ phase~\cite{LeyensBOOK2003}.}
+    \label{fig:Ti_structures}
+\end{figure}
+
+Depending on their influence on the $\beta$ transition temperature, the alloying elements of titanium are classified as neutral, $\alpha$--stabilizers, or $\beta$-stabilizers (Fig.~\ref{fig:Ti_alloys}). The $\alpha$--stabilizing elements extend the $\alpha$ phase field to higher temperatures, while $\beta$--stabilizing elements shift the $\beta$ phase field to lower temperatures. Neutral elements have only minor influence on the transition temperature. Apart from the regular alloying elements, there are also primarily nonmetallic elements on the order of few \SI{100}{ppm} present as impurities.
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=.65\textwidth]{Ti_alloys}
+    \caption{Schematic picture of the influence of alloying elemnents on Ti phase diagrams~\cite{LeyensBOOK2003}.}
+    \label{fig:Ti_alloys}
+\end{figure}
+
+Among the $\alpha$--stabilizers, aluminum is by far the most important alloying element of titanium. The interstitial elements oxygen, nitrogen, and carbon also belong to this category. In addition to extending the a phase field to higher temperatures, the $\alpha$--stabilizers develop a two--phase $\alpha+\beta$ field. $\beta$--stabilizing elements are subdivided into $\beta$--isomorphous and $\beta$--eutectic elements. Of these, the $\beta$--isomorphous elements such as Mo, V, and Ta are by far more important due to their much higher solubility in titanium. In Fig.~\ref{fig:Ti_phase} a schematic three--dimensional diagram shows the most stable phases with respect to the added concentration of stabilizers (here only Al and V are shown).
+\begin{figure}[bt]
+    \centering
+    \includegraphics[width=.65\textwidth]{Ti_3Dphase}
+    \caption{Three-dimensional phase diagram to classify Ti alloys~\cite{LeyensBOOK2003}.}
+    \label{fig:Ti_phase}
+\end{figure}
+
+The microstructure of conventional titanium alloys is primarily described by the size and arrangement of the two phases $\alpha$ and $\beta$. The two extreme cases of phase arrangements are the lamellar microstructure, which is generated upon cooling from the $\beta$ phase field, and the equiaxed microstructure, which is a result of a recrystallization process. Both types of microstructure can have a fine as well as a coarse arrangement of their two phases. Generally, the different microstructures are generated by thermomechanical treatments, considered as a complex sequence of solution heat treatment, deformation, recrystallization, aging, and annealing for stress relief.
+
+An important point for thermomechanical treatment is the $\beta$--transition temperature ($T_\beta$), since it separates the single $\beta$ phase field from the two--phase $\alpha+\beta$ field. Lamellar microstructures are a result of simple cooling from temperatures above $T_\beta$. Once the temperature falls below the $T_\beta$, $\alpha$ phase nucleates at grain boundaries and then grows as lamellae into $\beta$ grains.
+Depending on the cooling rate, the lamellae are either fine or coarse: slow cooling from the $\beta$ phase field results in pure lamellar microstructures, with the lamellae becoming coarser with reduced cooling rate. Rapid quenching, instead, leads to a martensitic transformation of the $\beta$ phase, resulting in a very fine needle--like microstructure.
+
+To generally improve the properties of materials, and titanium alloys in particular, there are essentially two ways to proceed: alloying and processing. Recently a third option has gained importance: the production of composite materials. %(also called Metal Matrix Composites, already discussed in the previous section).
+
+Alloying lays the basis for an increase in strength (e.g.\ solid-solution strengthening, age hardening), allows the generation of ordered structures (e.g.\ intermetallic compounds of titanium and aluminum), determines most of the physical properties (e.g.\ density, elastic modulus, coefficient of thermal expansion), and largely controls the chemical resistance of the material (corrosion, oxidation).
+
+Processing allows the careful balancing of the property profile of materials. Depending on the specific property profile required for the final application, different microstructures can be generated for titanium alloys by means of thermomechanical treatment to optimize for strength (solid solution strengthening, dispersion strengthening, grain boundary strengthening, texture hardening), ductility, toughness, superplasticity, stress corrosion, creep resistance, etc. The processing techniques of rapid solidification and mechanical alloying extend the spectrum of potential alloy compositions.
+
+
+
+
+
+
+%%% Section on Au alloys (rewritten)
+\input{MainMatter/Au-alloys.tex}
+
+
+
+
+
+
+
+
+\section{Present challenges}
+\label{sec:challenges}
+Issues related to the techniques described in previous sections can be divided in two different, though linked, fields: the first one is from a material science perspective and a second one related to technological--industrial aspects.
+
+General physical properties of materials that are fundamental to all laser--based manufacturing processes are absorptance, surface tension (and wettability) and viscosity: these are to be taken into account when thinking of design strategies of the target product. 
+
+%The absorptance is defined as the ratio of the absorbed radiation to the incident radiation. AM processes generally involve a direct interaction of powders with laser beams, therefore the determination of absorptance of powders is particularly important, because it allows one to determine a suitable ``processing window'' free of a nonresponse of powder due to an insufficient laser energy input or a pronounced material evaporation due to an excessive energy input.
+
+Among more specific aspects of AM that are presently subject to study, there are microstructural and mechanical properties and the out of equilibrium phenomenon known as solute trapping. The first two are of primary importance for AM applications and, at the same time, they represent quite broad classes of materials properties. Solute trapping is of peculiar interest when studying solid--liquid interfaces. Therefore, we try to give here a concise, but detailed, overview of these features.
+
+Mechanical properties of AM processed components are strongly linked to the solidification microstructure. The high--energy laser interaction gives rise to a very fast heating and melting of materials, which is inevitably followed by a rapid solidification on cooling. Laser--based AM processes normally offer high heating and cooling rates ($\sim\SI{100}{K/s}$)~\cite{Wright2006:GuREVIEW166} at the solid--liquid interface, producing a molten pool of quite small size ($\sim\SI{1}{mm}$)~\cite{Childs2005:GuREVIEW167}. Furthermore, the rates of quenching that occur by conduction of heat through the substrate are fast enough to produce a rapid solidification microstructure. Therefore, as a characteristic of AM processed materials, grain refinement is generally expected, due to an insufficient time for grain development and growth.
+Moreover, either chemical concentration or temperature gradients in the molten pool may generate surface tension gradient, making the solidification a non--steady state process (due to the so--called ``Gibbs--Marangoni effect''). On the other hand, rapid solidification has the kinetic limitation of crystal growth that normally follows the direction of maximum heat flow. The simultaneous but competitive action of the above two mechanisms, i.e.\ a non--equilibrium solidification nature and a localized directional growth tendency, may lead to a variety of crystal orientations with a short--range regularity~\cite{Becker2009:GuREVIEW157}. Therefore, metallic materials processed by AM may present intrinsic, more or less, anisotropic features.
+
+Another important issue concerning mechanical properties of AM--processed materials is related to the residual stresses (i.e.\ stresses that remain inside a material, when it has reached equilibrium with its environment) that arise in the parts being produced. Residual stresses may impose some serious limitations to the practical use, since they introduce part deformations and/or micro cracks. Moreover, large residual stresses can limit the load resistance of the parts compared to a stress--free state.
+
+In general, residual stresses are considerably large in parts fabricated in a layer--by--layer fashion. A thorough theoretical and experimental study by Kruth et al.~\cite{kruth+04jmatproctech} has disclosed that the residual stress profile consists of two zones of large tensile stresses at the top and bottom of a processed part and a large zone of intermediate compressive stress in between. The magnitude and shape of the residual stress profile depend on the geometric height of the part, the material properties and laser scanning strategy and processing conditions.
+
+Among material properties the elastic modulus and the coefficient of thermal expansion play an important role in what determines the level of residual stresses.
+
+%Materials with a low expansion coefficient can be used to control the level of residual stresses. As an example, when dealing with MMC previously discussed, a reasonable selection of the ceramic reinforcement which has a similar expansion coefficient as the metal matrix is preferred.
+
+The elastic modulus is of primary importance when phase transformations take place, as they may be detrimental or beneficial with respect to residual stresses. Normally, the formation of brittle phases during AM may promote stress cracking, whereas some controlled phase transformations may have the potential to reduce or eliminate stresses and deformation.
+
+Laser processing conditions can be tuned to control the presence of residual stresses. For LS and LM processes, the laser scanning strategy has a significant influence on the residual stresses being developed. Normally, the stresses are larger perpendicular to the scan direction than along the scan direction~\cite{Simchi2003:GuREVIEW173}  and a  subdivision of the surface in smaller sectors has been shown to lead to a lower stress value.
+
+

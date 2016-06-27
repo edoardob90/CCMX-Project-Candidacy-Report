@@ -1,0 +1,48 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper,11pt,fleqn]{book}
+
+\input{FrontBackMatter/settings_epfl_template}
+\input{FrontBackMatter/settings_custom}
+
+% Packages for bibliography
+\usepackage[autostyle,italian=guillemets]{csquotes}
+\usepackage[sorting=none,style=numeric-comp,hyperref,natbib,backend=biber]{biblatex}
+
+\addbibresource{FrontBackMatter/bibliography.bib}
+
+
+\begin{document}
+
+
+%****frontmatter*****
+\frontmatter
+\input{FrontBackMatter/Title}  %frontespizio
+%\input{FrontBackMatter/Abstract}  %sommario
+
+\tableofcontents  % indice dei contenuti
+
+
+%*****mainmatter*****
+\mainmatter
+\input{MainMatter/AM_intro}
+\input{MainMatter/Simulating_AM}
+\input{MainMatter/CFM_revisited}
+\input{MainMatter/Potentials}
+
+%\input{MainMatter/Outlook}
+
+% appendici
+%\appendix
+%\input{MainMatter/A_gendiag}
+%\input{MainMatter/B_ewald}
+
+
+
+%*****backmatter*****
+\backmatter
+% bibliografia
+\input{FrontBackMatter/Biblio}
+
+
+
+\end{document}
