@@ -1,0 +1,101 @@
+\section{Materials}
+All the additive manufacturing technique described above can be applied, on theoretical grounds, to metallic materials in any form as well as to other classes of materials (see \cref{fig:materials-chart}). For the purposes of this report, we shall limit the discussion to two classes: pure metals and alloys powder. In the last part of this section, we describe in a more detailed way three specific metal alloys of particular interest to companies we collaborate with.
+\begin{figure}[bt]
+    \centering
+    \includegraphics[width=0.5\textwidth]{materials-chart}
+    \caption{Research interests on LM manufacturing of different materials, based on publications indexed by Web Of Science and ScienceDirect from 1999 to 2014. From \cite{Yap2015}.}
+    \label{fig:materials-chart}
+\end{figure}
+
+\subsection{Common classes of materials}
+\subsubsection{Pure metals}
+Pure metals have been applied for various AM processes since the beginning. However, they are no more the focus of future development of AM technology mainly because of two reasons: firstly, pure metals are known to have relatively poor mechanical properties and, from a chemical point of view, they are more prone to corrosion and/or oxidation. Secondly, early attempts to processing pure metals with the laser sintering technique have been largely unsuccessful (i.e.\ poor overall quality of final products) and a real improvement has been possible only with first successful applications of LM. For example~\cite{Fischer2004}, LS processing of pure Ti samples showed that final products typically has an heterogeneous microstructure, which consists of cores of unmelted powder grains, melted surface of grains and residual voids; this means that the density of parts so obtained can be quite far from the level required to ensure good mechanical properties. For these reasons, currently industrial applications moved from LS to LM or LMD to build nonferrous pure metals components. It is worth noting, however, that recent studies~\cites{Krishna2007}{Xue2007} on a partial melting mechanism of pure metals such as Ti and Ta have demonstrated the interesting possibility of producing complex shaped porous structures with functionally graded porosity used for biomedical applications.
+
+\subsubsection{Alloys powder}
+The majority of the actual research (and subsequent applications) has been focused on powder alloys, based on metals such as Ti, Ni and Fe. Additive manufacturing of aluminum--based alloys might be the next research step, in order to face the difficulties related to the processing of nonferrous alloys with high reflectivity to laser energy. Almost all the work on AM of alloys powder is based on a complete melting mechanism, thus adopting the techniques of LS or LMD. Therefore, high laser source power is generally required to yield good bonding mechanism and obtain fully dense parts (excepts for porous materials if needed). Examples of lasers used for this purpose are \ce{CO2} powered lasers, Nd:YAG and fibre lasers. Besides the setup of the processing parameters, residual stresses and microstructures are two important aspects to take into account, as they are strongly influenced by large undercooling degree during rapid solidification, after the laser source has generated the molten pool. As proposed by Abe et al.~\cite{abe+01jmatproctech}, a possible way to solve these issues is the use of a dual laser scanning system; essentially, in this way one of the two laser can be used during a "preheating" phase before the actual melting or after the latter in a ``reheating'' phase.
+
+%\subsubsection{Metal matrix composites}
+%Metal matrix composites (MMC) can be classified as multicomponent systems, in which the metal acts as the binder while the ceramic material is the structural one. The idea of mixing metal and ceramic reinforcement is one of the most common practice in modern material science: putting together different materials to exploit the advantages of both and obtain a multicomponent system with new properties. MMC in fact exhibits an optimum combination between a simple metal matrix and stiffer and stronger ceramic material. Usually, MMC powders are obtained by mechanically alloying a mixture of different powder components (for example, with the technique called ``ball milling''\footnote{\textit{cit. 202 from Gu et al.}}). One of the most studied metal matrix composite for AM is \ce{WC}--\ce{Co} (tungsten carbide and cobalt)\footnote{\textit{cit. 203--207}}, since even with LS high density parts can be obtained, comparable with conventionally sintered hard metals.
+
+%MMC just described are also called \emph{ex situ} MMC, because the ceramic reinforcing particles are added separately to the metal matrix. Recently, using the very AM technology, there has been the development of novel \emph{in situ} MMCs, in which the constitutions are synthesized directly during the process by chemical reactions. In this way, MMCs are thermodynamically stable systems and thus more suitable for high temperature applications. Moreover, interfaces between ceramic and metal have a smaller surface roughness, yielding to stronger interfacial bonding and in turn optimal mechanical properties of the final products\footnote{\textit{cit. 225}}.
+
+
+
+%\subsection{Ni, Ti and Au based alloys}
+\subsection{Nickel based superalloys}
+A superalloy is a metallic alloy which can be used at high temperatures, often in excess of the absolute melting temperature. Resistance to creep and oxidation are the design criteria of prime interest. Superalloys can be based on iron, cobalt or nickel, with the latter being widely studied as best suited many industrial, high--performance applications such those required in the aerospace field.
+
+The fundamental solutes in nickel based superalloys are aluminium and titanium, with a total concentration which is typically less than 10 atomic percent. This generates a two--phase equilibrium microstructure, consisting of gamma ($\gamma$) and gamma--prime ($\gamma'$) phases. It is the $\gamma'$ which is largely responsible for the elevated temperature strength of the material and its incredible resistance to creep deformation. The amount of $\gamma'$ depends on the chemical composition and temperature.%, as illustrated in the ternary phase diagrams below.
+
+The $\gamma$ phase is a solid solution with a Face Centered Cubic lattice and a random distribution of the different species of atoms. By contrast, $\gamma'$ has a simple cubic lattice in which the nickel atoms are at the face-centres and the aluminium or titanium atoms at the cube corners, as the following picture shows schematically.
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Ni_structures}
+    \caption{On the right, the structure of the $\gamma$ phase, a solid solution of Ni and Al atoms. The left scheme is the structure of the $\gamma'$. From: {\ttfamily\url{http://www.eng-atoms.msm.cam.ac.uk/}}}
+    \label{fig:Ni_struct}
+\end{figure}
+
+This atomic arrangement has the chemical formula \ce{Ni3Al} or \ce{Ni3Ti}. However, as can be seen in the following phase diagram at \SI{1573}{K}, from the ($\gamma$+$\gamma'$)/$\gamma'$ phase boundary on the ternary sections of the Ni, Al, Ti  the phase is not strictly stoichiometric: there may exist an excess of vacancies on one of the sublattices which leads to deviations from stoichiometry or substitutional defects may be present, i.e.\ some of the Ni atom may occupy Al sites or vice--versa. 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.4\textwidth]{TernaryPhase}
+    \caption{Ni-Al-Ti ternary phase diagram at \SI{1573}{K} with the $\gamma$, $\gamma'$ and coexistence regions indicated. From From: {\ttfamily\url{http://www.eng-atoms.msm.cam.ac.uk/}}}
+    \label{fig:Ni_phase}
+\end{figure}
+
+One of the most important properties of these alloys is their strength up to very high temperatures. More precisely, these alloys show high yield strengths (usually denoted by $\sigma_y$) and at first these values are independent on temperature. An explanation of this peculiar property lies in the structure of the two phases: both have a cubic lattice with similar lattice parameters and the $\gamma$ phase forms the matrix in which the $\gamma'$ precipitates. In this ``transition'' cubic symmetry is preserved and thus cell edges of the $\gamma'$ are exactly parallel to the corresponding edges of the $\gamma$ phase. Furthermore, because their lattice parameters are similar, when the precipitate size is small, there is a little lattice misfit between the two phases . Dislocations in the $\gamma$ nevertheless find it difficult to penetrate $\gamma'$, partly because the latter is an atomically ordered phase. The order interferes with dislocation motion and hence strengthens the alloy.
+
+Also the mismatch between the lattice parameters of the two phase plays quite an important role: it promotes the stability of the microstructure at high temperature. This is mainly due to the fact that the $\gamma$ and the $\gamma'$ belong to almost equal crystal structure and thus the $\gamma/\gamma'$ interface energy is quite low. The mechanism of precipitate coarsening (i.e.\ the Oswald ripening) is thermodynamically driven by the minimisation of the interface energy and therefore the more coherent is the interface (i.e.\ the smaller its surface free energy), the more stable is the microstructure, because especially at high temperature it does not happen that a precipitate of a solid phase grows at the expense of another one.
+
+Commercial superalloys contain more than just Ni, Al or Ti. Essential resistance to oxidation is promoted also by the presence of chromium besides aluminum and small quantities of yttrium help the oxide layer to be commensurate with the substrate. Furthermore, when dealing with polycrystalline superalloys the addition of boron and zirconium results in reducing the grain boundary energy, which in turn improve overall creep strength. There are, naturally, limits to the concentrations of these element that can be added without inducing precipitation or promoting the formation of brittle phases.
+
+
+\subsection{Titanium alloys}
+Titanium alloys are among the most important of the advanced materials that are essential in several fields of applications, from aerospace to biomedical. This is because of an excellent combination between mechanical properties and, for example, a formidable resistance to corrosion exhibited by titanium alloys. On the other hand, the high cost of production of these alloys compared to competing materials is one of the main reasons negating their widespread use.
+
+Like a number of other metals titanium can crystallize in various crystal structures. The complete transformation from one into another crystal structure is called ``allotropic transformation''.
+
+Pure titanium, as well as the majority of titanium alloys, crystallizes at low temperatures in a modified ideally hexagonal close packed structure, called $\alpha$ titanium. At high temperatures, however, the body-centered cubic structure is stable and is referred to as $\beta$ titanium. The $\alpha-\beta$ transition temperature for pure titanium is \SI{882}{\celsius}. The atomic unit cells of the hexagonal close packed (hcp) $\alpha$ titanium and the body-centered cubic (bcc) $\beta$ titanium are schematically shown in Fig.~\ref{fig:Ti_structures} with their most densely packed planes and directions highlighted.
+The existence of the two different crystal structures and the corresponding allotropic transformation temperature is of central importance since they are the basis for the large variety of properties achieved by titanium alloys.
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=.6\textwidth]{Ti_structures}
+    \caption{Crystal structure of HCP $\alpha$ and BCC $\beta$ phase~\cite{LeyensBOOK2003}.}
+    \label{fig:Ti_structures}
+\end{figure}
+
+Depending on their influence on the $\beta$ transition temperature, the alloying elements of titanium are classified as neutral, $\alpha$--stabilizers, or $\beta$-stabilizers (Fig.~\ref{fig:Ti_alloys}). The $\alpha$--stabilizing elements extend the $\alpha$ phase field to higher temperatures, while $\beta$--stabilizing elements shift the $\beta$ phase field to lower temperatures. Neutral elements have only minor influence on the transition temperature. Apart from the regular alloying elements, there are also primarily nonmetallic elements on the order of few \SI{100}{ppm} present as impurities.
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=.65\textwidth]{Ti_alloys}
+    \caption{Schematic picture of the influence of alloying elemnents on Ti phase diagrams~\cite{LeyensBOOK2003}.}
+    \label{fig:Ti_alloys}
+\end{figure}
+
+Among the $\alpha$--stabilizers, aluminum is by far the most important alloying element of titanium. The interstitial elements oxygen, nitrogen, and carbon also belong to this category. In addition to extending the a phase field to higher temperatures, the $\alpha$--stabilizers develop a two--phase $\alpha+\beta$ field. $\beta$--stabilizing elements are subdivided into $\beta$--isomorphous and $\beta$--eutectic elements. Of these, the $\beta$--isomorphous elements such as Mo, V, and Ta are by far more important due to their much higher solubility in titanium. In Fig.~\ref{fig:Ti_phase} a schematic three--dimensional diagram shows the most stable phases with respect to the added concentration of stabilizers (here only Al and V are shown).
+\begin{figure}[bt]
+    \centering
+    \includegraphics[width=.65\textwidth]{Ti_3Dphase}
+    \caption{Three-dimensional phase diagram to classify Ti alloys~\cite{LeyensBOOK2003}.}
+    \label{fig:Ti_phase}
+\end{figure}
+
+The microstructure of conventional titanium alloys is primarily described by the size and arrangement of the two phases $\alpha$ and $\beta$. The two extreme cases of phase arrangements are the lamellar microstructure, which is generated upon cooling from the $\beta$ phase field, and the equiaxed microstructure, which is a result of a recrystallization process. Both types of microstructure can have a fine as well as a coarse arrangement of their two phases. Generally, the different microstructures are generated by thermomechanical treatments, considered as a complex sequence of solution heat treatment, deformation, recrystallization, aging, and annealing for stress relief.
+
+An important point for thermomechanical treatment is the $\beta$--transition temperature ($T_\beta$), since it separates the single $\beta$ phase field from the two--phase $\alpha+\beta$ field. Lamellar microstructures are a result of simple cooling from temperatures above $T_\beta$. Once the temperature falls below the $T_\beta$, $\alpha$ phase nucleates at grain boundaries and then grows as lamellae into $\beta$ grains.
+Depending on the cooling rate, the lamellae are either fine or coarse: slow cooling from the $\beta$ phase field results in pure lamellar microstructures, with the lamellae becoming coarser with reduced cooling rate. Rapid quenching, instead, leads to a martensitic transformation of the $\beta$ phase, resulting in a very fine needle--like microstructure.
+
+To generally improve the properties of materials, and titanium alloys in particular, there are essentially two ways to proceed: alloying and processing. Recently a third option has gained importance: the production of composite materials. %(also called Metal Matrix Composites, already discussed in the previous section).
+
+Alloying lays the basis for an increase in strength (e.g.\ solid-solution strengthening, age hardening), allows the generation of ordered structures (e.g.\ intermetallic compounds of titanium and aluminum), determines most of the physical properties (e.g.\ density, elastic modulus, coefficient of thermal expansion), and largely controls the chemical resistance of the material (corrosion, oxidation).
+
+Processing allows the careful balancing of the property profile of materials. Depending on the specific property profile required for the final application, different microstructures can be generated for titanium alloys by means of thermomechanical treatment to optimize for strength (solid solution strengthening, dispersion strengthening, grain boundary strengthening, texture hardening), ductility, toughness, superplasticity, stress corrosion, creep resistance, etc. The processing techniques of rapid solidification and mechanical alloying extend the spectrum of potential alloy compositions.
+
+
+
+
+
+
+%%% Section on Au alloys (rewritten)
+\input{MainMatter/Au-alloys.tex}
