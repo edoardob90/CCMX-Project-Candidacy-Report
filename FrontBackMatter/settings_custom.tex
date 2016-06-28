@@ -52,3 +52,9 @@
 % Misc
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 \sisetup{detect-weight=true,detect-inline-weight=math}
+
+% Customize chapter style (more compact style without "Chapter" header)
+\usepackage{titlesec}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}

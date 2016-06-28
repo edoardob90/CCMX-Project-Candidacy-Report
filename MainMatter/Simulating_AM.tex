@@ -1,17 +1,8 @@
 \chapter{Simulating additive manufacturing}
-%\minitoc
 
-\section{Present simulation approaches}
-%Outline of the section:
-%\begin{itemize}
-%    \item Most simulation approaches focus on the meso--scale (phase field simulation and/or finite elements methods).
-%    \item Why we focus instead on atomistic techniques? Because we can get a better understanding of strongly out of equilibrium phenomena and also provide provide parameters for meso--scale simulations, such as
-%    \begin{enumerate}
-%        \item Diffusion coefficient
-%        \item Viscosity
-%        \item Solid-liquid interfaces properties: dynamical properties and thermodynamics, nucleation rate.
-%    \end{enumerate}
-%\end{itemize}
+\section{Present simulation approaches and challenges\label{sec:challenges}}
+
+%\subsection{Present simulation approaches}
 As a whole, AM processes are considered as an important step--change in manufacturing technologies nowadays widely used, opening up the possibility of going almost directly from Computer Aided Design to net--shape defined products. With sufficient penetration in the industrial sector, this kind of technology could have a significant impact on both the environment and on sustainable manufacturing, with large reduction of material wastage and integrated components with specific optimized features.
 However, there are many challenges to be overcome to increase the importance of these technologies for the industry. These range for business considerations to technical and inherent differences in the processes from industry standards.
 
@@ -59,7 +50,26 @@ There are several motivations to employ atomistic simulations to study materials
 %In this context, properties like the nucleation rate, the mechanism of the nucleation itself (e.g.\ planar or dendritic) and growth speed during solidification are of primary interest at the industrial level. 
 
 
+\subsection{Open issues}
+%Issues related to the techniques described in previous sections can be divided in two different, though linked, fields: the first one is from a material science perspective and a second one related to technological--industrial aspects.
 
+%General physical properties of materials that are fundamental to all laser--based manufacturing processes are absorptance, surface tension (and wettability) and viscosity: these are to be taken into account when thinking of design strategies of the target product. 
+
+%The absorptance is defined as the ratio of the absorbed radiation to the incident radiation. AM processes generally involve a direct interaction of powders with laser beams, therefore the determination of absorptance of powders is particularly important, because it allows one to determine a suitable ``processing window'' free of a nonresponse of powder due to an insufficient laser energy input or a pronounced material evaporation due to an excessive energy input.
+
+Among particular properties of interests for all AM processes, there are microstructural and mechanical properties and the out of equilibrium phenomenon known as solute trapping. The first two are of primary importance for AM applications and, at the same time, they represent quite broad classes of materials properties. Solute trapping is of peculiar interest when studying solid--liquid interfaces, especially when dealing with multi-component systems (e.g.\ ternary or more complex alloys).
+
+Mechanical properties of AM processed components are strongly linked to the solidification microstructure. The high--energy laser interaction gives rise to a very fast heating and melting of materials, which is inevitably followed by a rapid solidification on cooling. Laser--based AM processes normally offer high heating and cooling rates ($\sim\SI{100}{K/s}$)~\cite{Wright2006:GuREVIEW166} at the solid--liquid interface, producing a molten pool of quite small size ($\sim\SI{1}{mm}$)~\cite{Childs2005:GuREVIEW167}. Furthermore, the rates of quenching that occur by conduction of heat through the substrate are fast enough to produce a rapid solidification microstructure. Therefore, as a characteristic of AM processed materials, grain refinement is generally expected, due to an insufficient time for grain development and growth.
+Moreover, either chemical concentration or temperature gradients in the molten pool may generate surface tension gradient, making the solidification a non--steady state process (due to the so--called ``Gibbs--Marangoni effect''). On the other hand, rapid solidification has the kinetic limitation of crystal growth that normally follows the direction of maximum heat flow. The simultaneous but competitive action of the above two mechanisms, i.e.\ a non--equilibrium solidification nature and a localized directional growth tendency, may lead to a variety of crystal orientations with a short--range regularity~\cite{Becker2009:GuREVIEW157}. Therefore, metallic materials processed by AM may present intrinsic, more or less, anisotropic features.
+
+Another important issue concerning mechanical properties of AM--processed materials is related to the residual stresses (i.e.\ stresses that remain inside a material, when it has reached equilibrium with its environment) that arise in the parts being produced. Residual stresses may impose some serious limitations to the practical use, since they introduce part deformations and/or micro cracks. Moreover, large residual stresses can limit the load resistance of the parts compared to a stress--free state.
+
+%In general, residual stresses are considerably large in parts fabricated in a layer--by--layer fashion. A thorough theoretical and experimental study by Kruth et al.~\cite{kruth+04jmatproctech} has disclosed that the residual stress profile consists of two zones of large tensile stresses at the top and bottom of a processed part and a large zone of intermediate compressive stress in between. The magnitude and shape of the residual stress profile depend on the geometric height of the part, the material properties and laser scanning strategy and processing conditions.
+
+Among material properties the elastic modulus and the coefficient of thermal expansion play an important role in what determines the level of residual stresses.
+The elastic modulus is of primary importance when phase transformations take place, as they may be detrimental or beneficial with respect to residual stresses. Normally, the formation of brittle phases during AM may promote stress cracking, whereas some controlled phase transformations may have the potential to reduce or eliminate stresses and deformation.
+
+Laser processing conditions can be tuned to control the presence of residual stresses. For LS and LM processes, the laser scanning strategy has a significant influence on the residual stresses being developed. Normally, the stresses are larger perpendicular to the scan direction than along the scan direction~\cite{Simchi2003:GuREVIEW173}  and a  subdivision of the surface in smaller sectors has been shown to lead to a lower stress value.
 
 
 
@@ -96,8 +106,7 @@ Recently, approaches of this kind coupled with the accelerated sampling techniqu
 
 
 
-\section{Capillary fluctuations and free energies}%
-\label{sec:CFM}
+\subsection{Capillary fluctuations and free energies\label{sec:CFM}}
 
 The capillary fluctuation method was firstly introduced by Asta and coworkers~\cite{HoytPRL2001:CFM} in 2001 and employs an analysis of height fluctuations
 of the solid--liquid interface at equilibrium to extract the interface stiffness, $\sigma$.
