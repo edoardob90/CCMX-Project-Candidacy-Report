@@ -30,34 +30,33 @@ Besides meso--scale approaches useful to bridge the gap between the modeling pha
 
 There are several motivations to employ atomistic simulations to study materials under the conditions they are subject to during AM processes. The foremost reason is related to the out--of--equilibrium conditions that are usually the ``scenario'' in which additive manufacturing takes place: we already mentioned the importance of this kind of phenomena that occur away from thermodynamical equilibrium (see Section~\ref{sec:challenges}). Thus, atomistic simulations are the most predictive method to investigate these aspects.
 
-Furthermore, there are some general physical properties that are in common with all AM techniques and atomistic simulations serve as a versatile tool to study in depth all of these properties. In this particular context, ``general'' physical properties means studying: viscosity (and the closely related diffusion coefficient), absorptance and the class of solid--liquid interface properties. We shall discuss these properties briefly in the last part of this section.
+%Furthermore, there are some general physical properties that are in common with all AM techniques and atomistic simulations serve as a versatile tool to study in depth all of these properties. In this particular context, ``general'' physical properties means studying: viscosity (and the closely related diffusion coefficient), absorptance and the class of solid--liquid interface properties. We shall discuss these properties briefly in the last part of this section.
 
-\subsubsection{Viscosity and diffusion coefficient}
-Viscosity and diffusion coefficient are strictly related (e.g.\ by the Stoke--Einstein relation). Both of these properties are of relevant importance for AM, and especially laser--driven manufacturing: viscosity of the melt pool is required to be low enough such that it successfully spreads on the previously processed layer. According to Takamichi and Roderick, for a process like LM in which the powder system undergoes a complete melting, the dynamic viscosity of the liquid can be defined as~\cite{Takamichi1993}
-\begin{equation}
-    \eta= \frac{16}{15}\sqrt{\frac{m}{k_B T}} \gamma
-    \label{eqn:dynamic-viscosity}
-\end{equation}
-where $\gamma$ is the surface tension of the liquid (all the other quantities being self--explanatory).
-This viscosity decreases with increasing the working temperature, which in turn leads to better diffusion properties of the liquid in conjunction with solid particles and, eventually, an improved densification. An issue can be met when processing metallic system with a strong formation tendency of intermetallic compounds, which are generally brittle and may increase the viscosity of the melt.
+%\subsubsection{Viscosity and diffusion coefficient}
+%Viscosity and diffusion coefficient are strictly related (e.g.\ by the Stoke--Einstein relation). Both of these properties are of relevant importance for AM, and especially laser--driven manufacturing: viscosity of the melt pool is required to be low enough such that it successfully spreads on the previously processed layer. According to Takamichi and Roderick, for a process like LM in which the powder system undergoes a complete melting, the dynamic viscosity of the liquid can be defined as~\cite{Takamichi1993}
+%\begin{equation}
+    %\eta= \frac{16}{15}\sqrt{\frac{m}{k_B T}} \gamma
+    %\label{eqn:dynamic-viscosity}
+%\end{equation}
+%where $\gamma$ is the surface tension of the liquid (all the other quantities being self--explanatory).
+%This viscosity decreases with increasing the working temperature, which in turn leads to better diffusion properties of the liquid in conjunction with solid particles and, eventually, an improved densification. An issue can be met when processing metallic system with a strong formation tendency of intermetallic compounds, which are generally brittle and may increase the viscosity of the melt.
 
-\subsubsection{Absorptance}
-AM processes generally involve direct interaction of metallic powders with laser beam. The study of absorptance properties of powders is particularly important because it allows one to determine the suitable ``processing window'', which, in the best case scenario, should be free of a non--response of powder due to insufficient laser energy and material evaporation due to excessive input power.
-The absorptance\footnote{It should not be confused with absorbance, which is a more specific property of matter related to the intensity of incident beam of monochromatic light and the intensity of the radiation passed through the sample: $A=\log_{10}{I_0/I}$.}%
-is defined as the ratio of the absorbed radiation to the incident radiation. As opposed to dense materials, only a fraction of the incident radiation is absorbed by the outer surface of particles; another part of the radiation penetrates through the interparticles voids.
+%\subsubsection{Absorptance}
+%AM processes generally involve direct interaction of metallic powders with laser beam. The study of absorptance properties of powders is particularly important because it allows one to determine the suitable ``processing window'', which, in the best case scenario, should be free of a non--response of powder due to insufficient laser energy and material evaporation due to excessive input power.
+%The absorptance\footnote{It should not be confused with absorbance, which is a more specific property of matter related to the intensity of incident beam of monochromatic light and the intensity of the radiation passed through the sample: $A=\log_{10}{I_0/I}$.} is defined as the ratio of the absorbed radiation to the incident radiation. As opposed to dense materials, only a fraction of the incident radiation is absorbed by the outer surface of particles; another part of the radiation penetrates through the interparticles voids.
 
-Absorptance is strongly affected by and can greatly change during the laser processing; changes in thermophysical properties of powder, particle rearrangement, phase transistion and oxidation all influence absorptance. Also, absorptance is time and process dependent and generally the greater the absorptance power, the less the laser energy required.
+%Absorptance is strongly affected by and can greatly change during the laser processing; changes in thermophysical properties of powder, particle rearrangement, phase transistion and oxidation all influence absorptance. Also, absorptance is time and process dependent and generally the greater the absorptance power, the less the laser energy required.
 
 
-\subsubsection{Solid--liquid interface properties}
-Among surface properties, surface tension is by far the most relevant  when dealing with AM processes, because both in LS and LM phase transition occur and coexistence of solid and liquid is always present. The wetting behaviour of the molten system and the solidified processed layer is related to the surface tensions of solid--liquid ($\mathrm{SL}$), solid--vapour ($\mathrm{SV}$) and liquid--vapour ($\mathrm{LV}$) by the Young's equation
-\begin{equation}
-    \gamma_\mathrm{SV} - \gamma_\mathrm{SL} - \gamma_\mathrm{LV} \cos \theta_\mathrm{C}=0,
-\end{equation}
-wheren $\theta_\mathrm{C}$ is the contact angle. The main issue associated to a poor wettability of a system has been disclosed by Das~\cite{Das2003}: since metals show a rather common tendency to surface passivation with the formation of oxides, the presence of this contamination layer on the surface of melts and on previously processed layer is a strong impediment to a good wettability and causes structural defects such as balling (see \cref{sub:LM}). %One possible solution to this is carrying out AM processes under protective atmosphere, using high purity inert gases.
+%\subsubsection{Solid--liquid interface properties}
+%Among surface properties, surface tension is by far the most relevant  when dealing with AM processes, because both in LS and LM phase transition occur and coexistence of solid and liquid is always present. The wetting behaviour of the molten system and the solidified processed layer is related to the surface tensions of solid--liquid ($\mathrm{SL}$), solid--vapour ($\mathrm{SV}$) and liquid--vapour ($\mathrm{LV}$) by the Young's equation
+%\begin{equation}
+    %\gamma_\mathrm{SV} - \gamma_\mathrm{SL} - \gamma_\mathrm{LV} \cos \theta_\mathrm{C}=0,
+%\end{equation}
+%wheren $\theta_\mathrm{C}$ is the contact angle. The main issue associated to a poor wettability of a system has been disclosed by Das~\cite{Das2003}: since metals show a rather common tendency to surface passivation with the formation of oxides, the presence of this contamination layer on the surface of melts and on previously processed layer is a strong impediment to a good wettability and causes structural defects such as balling (see \cref{sub:LM}). %One possible solution to this is carrying out AM processes under protective atmosphere, using high purity inert gases.
 
-Interface properties play an important role also for what regards phase transition, ubiquitous in any AM process. Studying how a phase transition occurs means being able to know what controls nucleation, which happens when the melt begins to cool down after the highly energetic interaction with the laser source, and the subsequent growth, which strongly affects the nature of the microstructure of the processed component.
-In this context, properties like the nucleation rate, the mechanism of the nucleation itself (e.g.\ planar or dendritic) and growth speed during solidification are of primary interest at the industrial level. 
+%Interface properties play an important role also for what regards phase transition, ubiquitous in any AM process. Studying how a phase transition occurs means being able to know what controls nucleation, which happens when the melt begins to cool down after the highly energetic interaction with the laser source, and the subsequent growth, which strongly affects the nature of the microstructure of the processed component.
+%In this context, properties like the nucleation rate, the mechanism of the nucleation itself (e.g.\ planar or dendritic) and growth speed during solidification are of primary interest at the industrial level. 
 
 
 
@@ -74,20 +73,20 @@ Several computational methods have been developed to calculate $\gamma_{sl}$, wh
 
 Recently, approaches of this kind coupled with the accelerated sampling technique of metadynamics have been presented: the key idea is to obtain $\gamma_{sl}$ from a free--energy map of the phase transition reconstructed by metadynamics~\cite{Angioletti-Uberti2010}, allowing also to investigate solidification and melting in out--of--equilibrium conditions~\cite{Cheng2015}, much more relevant for experiments and mesoscale models of solidification (including additive manufacturing processes).
 
-\subsubsection{Overview of methods}
-In the following paragraphs we try to give a quick overview of the known methods for computing the solid--liquid interfacial free energy by means of molecular simulations. We will address more attention on CFM in the next section, on which we concentrated our efforts in the present research. A thorough description of the revisited method we adopted to obtain our results will be given in Chapter~\ref{ch:CFM}.
+%\subsubsection{Overview of methods}
+%In the following paragraphs we try to give a quick overview of the known methods for computing the solid--liquid interfacial free energy by means of molecular simulations. We will address more attention on CFM in the next section, on which we concentrated our efforts in the present research. A thorough description of the revisited method we adopted to obtain our results will be given in Chapter~\ref{ch:CFM}.
 
-In CMs, bulk solid and liquid phases are separately cleaved along the surface of interest and the different phases are joined to form the interface. In this way, $\gamma_{sl}$ is obtained by measuring the work done during the process~\cite{Broughton1986,Davidchack2000PRL}.
+%In CMs, bulk solid and liquid phases are separately cleaved along the surface of interest and the different phases are joined to form the interface. In this way, $\gamma_{sl}$ is obtained by measuring the work done during the process~\cite{Broughton1986,Davidchack2000PRL}.
 
-In the CNT approach, instead, crystalline nuclei of different sizes are introduced into a supercooled liquid phase and an orientational average of $\gamma_{sl}$ can be calculated by measuring the radius of the critical nucleus $R^*$ and inserting its value in the classical nucleation theory equation relating the critical radius and $\gamma_{sl}$
-\begin{equation}
-    R^*= \frac{2\gamma_{sl}}{\Delta G_{sl}},
-\end{equation}
-where $\Delta G_{sl}$ is the difference in Gibbs free energy between bulk solid and liquid. For small undercooling, $\Delta T$, the latter term can be approximated with $-\Delta S_f^m \Delta T$, in which $\Delta S_f^m$ is the molar entropy of fusion.
+%In the CNT approach, instead, crystalline nuclei of different sizes are introduced into a supercooled liquid phase and an orientational average of $\gamma_{sl}$ can be calculated by measuring the radius of the critical nucleus $R^*$ and inserting its value in the classical nucleation theory equation relating the critical radius and $\gamma_{sl}$
+%\begin{equation}
+    %R^*= \frac{2\gamma_{sl}}{\Delta G_{sl}},
+%\end{equation}
+%where $\Delta G_{sl}$ is the difference in Gibbs free energy between bulk solid and liquid. For small undercooling, $\Delta T$, the latter term can be approximated with $-\Delta S_f^m \Delta T$, in which $\Delta S_f^m$ is the molar entropy of fusion.
 
-All these methods (including CFM) have been successfully applied to model systems such as hard spheres~\cite{Broughton1986,Davidchack2006} and Lennard--Jones potential~\cite{Bai2006xs:Angioletti6,Morris2003:Angioletti10} as well as to more realistic semiempirical and quantum--mechanical systems modeled by embedded atom model (EAM)~\cite{Bai2006xs:Angioletti6} or Stillinger--Weber~\cite{Altmann1965:Angioletti7} potentials.
+%All these methods (including CFM) have been successfully applied to model systems such as hard spheres~\cite{Broughton1986,Davidchack2006} and Lennard--Jones potential~\cite{Bai2006xs:Angioletti6,Morris2003:Angioletti10} as well as to more realistic semiempirical and quantum--mechanical systems modeled by embedded atom model (EAM)~\cite{Bai2006xs:Angioletti6} or Stillinger--Weber~\cite{Altmann1965:Angioletti7} potentials.
 
-Both CFM and CNT have the disadvantage of being derived with approximations valid on the macroscale and for this reason require large simulation supercells with the order of \num{e5} atoms to be applicable and give reliable results. Cleavage methods requires smaller system, but may introduce non negligible errors if the simulations performed are not completely reversible, for example if complete solidification of the liquid happends while joining it to the solid due to large relative fluctuations of the interface. Lastly, interface free energy have shown to be very sensitive to the details of the potential used. For instance, different parametrizations of EAM potentials yields values of $\gamma_{sl}$ which vary by as much as 30\%~\cite{Morris2007:Angioletti19}.
+%Both CFM and CNT have the disadvantage of being derived with approximations valid on the macroscale and for this reason require large simulation supercells with the order of \num{e5} atoms to be applicable and give reliable results. Cleavage methods requires smaller system, but may introduce non negligible errors if the simulations performed are not completely reversible, for example if complete solidification of the liquid happends while joining it to the solid due to large relative fluctuations of the interface. Lastly, interface free energy have shown to be very sensitive to the details of the potential used. For instance, different parametrizations of EAM potentials yields values of $\gamma_{sl}$ which vary by as much as 30\%~\cite{Morris2007:Angioletti19}.
 
 
 
@@ -112,7 +111,7 @@ using molecular dynamics for pure materials or Monte Carlo simulations necessary
 \begin{figure}[bt]
     \centering
     \includegraphics[width=0.5\textwidth]{CFM-model}
-    \caption{Ref: Hoyt, Hasta and Karma CFM review.}
+    \caption{Schematic model of the one dimensional system considered in the original work on the capillary fluctuation method~\cite{Hoyt2003CFMReview}.}
     \label{fig:CFM_model}
 \end{figure}
 
