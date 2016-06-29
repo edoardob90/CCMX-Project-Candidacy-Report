@@ -1,5 +1,5 @@
-\section{Results}
-\label{sec:results}
+\section{Preliminary results\label{sec:results}}
+In this section the preliminary results for the stiffness of the simple Lennard--Jones system are presented. In this context, the models are to be considered as ``benchmark'' systems on which we tested our modified framework based on the CFM and compared the results obtained with previous literature work.
 
 \subsection{The models}
 As already explained, the CFM framework adopted allowed us to run only two independent simulations with different interface orientation. Specifically, (100) and (110) interface of an FCC crystal were chosen.
@@ -45,7 +45,7 @@ We recall that the original model used for the fits is something like $A(k) \pro
 
 
 \subsubsection{Computing the average Fourier spectrum}
-As explained in the Method section, the quantity subject to the fit as a function of $\bm{k}$ vectors is the average Fourier spectrum, $\langle |A(k_x,k_y)|^2 \rangle$. The easiest approach to compute this quantity, assuming valid the ergodicity postulate, would be to calculate for each $\bm{k}$ vector the time average of the corresponding Fourier amplitude (the square modulus of it). With this average it is also straightforward to compute the standard error of the mean.
+As explained in \cref{sec:method}, the quantity subject to the fit as a function of $\bm{k}$ vectors is the average Fourier spectrum, $\langle |A(k_x,k_y)|^2 \rangle$. The easiest approach to compute this quantity, assuming valid the ergodicity postulate, would be to calculate for each $\bm{k}$ vector the time average of the corresponding Fourier amplitude (the square modulus of it). With this average it is also straightforward to compute the standard error of the mean.
 
 The problem arises when dealing with time correlated data. Since we are studying fluctuations in Fourier spectrum, $\langle |A(\bm{k},t)|^2 \rangle$ is a clear example of data correlated in time. There are many ways to compute the correct error estimate of data of this kind. The main one consists of computing the so--called time auto--correlation function of the data set; the problem is that computing time correlation functions is usually expensive and requires a very frequent sampling (on the time scale) of the data. Another way of estimating statistical errors is studying the behaviour of so--called block averages~\cite{FrenkelSmitMD}.
 
@@ -73,7 +73,7 @@ In our case, we have also an estimate of what is the auto--correlation time $\ta
 \subsubsection{Stiffness tensor for (100)}
 Having explained all the technical details, we present in this section the results for the stiffness tensor obtained in our simulations. According to the analysis explained in the previous section, the average of the Fourier spectrum and its error estimates were computed considering blocks of 72 frames.
 
-Since (100) is a highly symmetric surface for the FCC system, it can be shown that the following relations hold for the stiffness tensor, $\sigma$: $\sigma_{11}=\sigma_{22}$ and $\sigma_{12}$ is zero. \Cref{tab:stiffness} summarizes the results obtained and compares them with the values of Becker et al.~\cite{Becker2009:CFM2D}\footnote{In this work, the fitting model is a symmetry--consistent model, that is for the (100) only one value of the stiffness tensor was considered. The model is identical to the one used for one--dimensional interfaces.}.
+Since (100) is a highly symmetric surface for the FCC system, it can be shown that the following relations hold for the stiffness tensor, $\sigma$: $\sigma_{11}=\sigma_{22}$ and $\sigma_{12}$ is zero. \Cref{tab:stiffness} summarizes the results obtained and compares them with the values of~\textcite{Becker2009:CFM2D}\footnote{In this work, the fitting model is a symmetry--consistent model, that is for the (100) only one value of the stiffness tensor was considered. The model is identical to the one used for one--dimensional interfaces.}.
 \begin{table}[tb]
     \centering
     \caption{Stiffness values calculated by our method at \num{0.6185} reduced temperature for (100) and (110) interfaces. Units on stiffness are $(\epsilon/\sigma^2)$. The values obtained by Becker at the same temperature are also reported for comparison (95\% confidence level on the last digit).}

@@ -1,24 +1,26 @@
 \chapter{The capillary fluctuation method revisited}
 \label{ch:CFM}
 
-As discussed in detail in the previous chapter (\cref{sec:CFM}), the capillary fluctuation method is a technique that can be essentially divided in four ``steps''.
-\begin{enumerate}
-    \item \textbf{Defining an appropriate way to discriminate solid and liquid}. This is the very first step since the next goal will be that of ``locating'' in an atomistic system the dividing surface between the solid and the liquid phase.
-    
-    \item \textbf{Analysing the surface profile}. At this point we are able to distinguish atoms that belong to a solid--like environment and liquid--like ones; we can track down the position of the surface by collecting snapshots of its profile, $h$. The latter is in general a function of two variables, i.e.\ the coordinates (with respect to the chosen coordinate system) in the interface plane. At the end of the simulation, the profile function $h$ is Fourier transformed and an ensemble average is computed to obtain the so--called fluctuations spectrum.
-    
-    \item \textbf{Fitting the fluctuations spectrum}. Relations such as \cref{eqn:amplitudes,eqn:amplitudes_xy} give the explicit link between capillary fluctuations and surface stiffness $\sigma$. Through the fit of these non--linear models for different surfaces, we are able to completely determine the $\sigma$ tensor.
-    
-    \item \textbf{Extracting the anisotropy coefficients}. Since we know the relation between interface free energy and the stiffness and we have an approximation of the anisotropy of $\gamma$, we can analytically determine $\sigma$ from \cref{eqn:cubic_harmonics} and fit this against the value of the stiffness calculated previously. In this way we will obtain the two anisotropy coefficients  (here $\epsilon$ and $\delta$) and completely map out the dependence of $\gamma$ from the interface orientation.
-\end{enumerate}
+%As discussed in detail in the previous chapter (\cref{sec:CFM}), the capillary fluctuation method is a technique that can be essentially divided in four ``steps''.
+%\begin{enumerate}
+%    \item \textbf{Defining an appropriate way to discriminate solid and liquid}. This is the very first step since the next goal will be that of ``locating'' in an atomistic system the dividing surface between the solid and the liquid phase.
+%    
+%    \item \textbf{Analysing the surface profile}. At this point we are able to distinguish atoms that belong to a solid--like environment and liquid--like ones; we can track down the position of the surface by collecting snapshots of its profile, $h$. The latter is in general a function of two variables, i.e.\ the coordinates (with respect to the chosen coordinate system) in the interface plane. At the end of the simulation, the profile function $h$ is Fourier transformed and an ensemble average is computed to obtain the so--called fluctuations spectrum.
+%    
+%    \item \textbf{Fitting the fluctuations spectrum}. Relations such as \cref{eqn:amplitudes,eqn:amplitudes_xy} give the explicit link between capillary fluctuations and surface stiffness $\sigma$. Through the fit of these non--linear models for different surfaces, we are able to completely determine the $\sigma$ tensor.
+%    
+%    \item \textbf{Extracting the anisotropy coefficients}. Since we know the relation between interface free energy and the stiffness and we have an approximation of the anisotropy of $\gamma$, we can analytically determine $\sigma$ from \cref{eqn:cubic_harmonics} and fit this against the value of the stiffness calculated previously. In this way we will obtain the two anisotropy coefficients  (here $\epsilon$ and $\delta$) and completely map out the dependence of $\gamma$ from the interface orientation.
+%\end{enumerate}
+
+We will explain here the method we derived from the original CFM and present the preliminary results obtained for the stiffness for a simple Lennard--Jones system.
 
 
-\section{The method}
+\section{The method\label{sec:method}}
 In this section we explain in full detail all the aforementioned steps, which build the framework of capillary fluctuation method we adopted for our calculations of the stiffness for a Lennard--Jones system,  devoting more attention to substantial differences with the original method developed by Asta.
 
 %\subsubsection{Solid or liquid}
 \subsection{Solid or liquid}
-As it has already been stressed, the very first requirement for a computational method whose aim is to study phase transitions or coexistence between different phases is a way of distinguishing particles belonging to the phases involved\footnote{Here we restrict ourselves to the case of solid and liquid, but it is clear that this prerequisite is completely general.}.
+The very first requirement for a computational method whose aim is to study phase transitions or coexistence between different phases is a way of distinguishing particles belonging to the phases involved\footnote{Here we restrict ourselves to the case of solid and liquid, but it is clear that this prerequisite is completely general.}.
 
 In molecular simulations of this kind, it is widespread to make use of a more or less complicate function that depends on atomic coordinates and that can give a quantitative indication of the ``order'' of one atom's neighborhood: this class of functions are usually called \emph{order parameters}. Many of these functions have been developed in order to face different problems; probably, the most known order parameters are the \textit{Steinhardt--Nelson} functions of different orders: $Q_3$, $Q_4$ and $Q_6$~\cite{Steinhardt1983}.
 
@@ -74,9 +76,9 @@ In our approach, we followed the idea proposed by Willard and Chandler~\cite{Wil
     \xRightarrow{\text{convolution}}\quad
     \overline{\rho}(\bm{r},t)=\sum_i \kappa( |\bm{r}-\bm{r}_i(t)| );\,\xi)
 \end{equation}
-Here $r$ is the magnitude of the distance vector $\bm{r}$ and $\xi$ is the coarse--graining length; $d$ stands for the dimensionality of the system. As we will discuss in the Results section, the importance of $\xi$ is that it controls the coarse nature of the continuous field obtained and it has to be chosen according to physical conditions under consideration.
+Here $r$ is the magnitude of the distance vector $\bm{r}$ and $\xi$ is the coarse--graining length; $d$ stands for the dimensionality of the system. As we will discuss in \cref{sec:results}, the importance of $\xi$ is that it controls the coarse nature of the continuous field obtained and it has to be chosen according to physical conditions under consideration.
 
-From this idea for a simple density field to an \textit{order parameter density field}, the step is really short: it suffices modifying the instantaneous atomistic ``density'' as follows
+From this idea for a simple density field to an \textit{order parameter density field}, the step is really short: it suffices modifying the instantaneous atomic ``density'' as follows
 \begin{equation}
 \label{eqn:op-field1}
     \rho(\bm{r},t) \leadsto \rho_{\phi}(\bm{r},t)=\sum_i \phi_i \delta(\bm{r}-\bm{r}_i(t)),
