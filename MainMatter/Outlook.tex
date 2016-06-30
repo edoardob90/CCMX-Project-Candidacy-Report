@@ -1,5 +1,23 @@
 \chapter{Proposed research plan}
-%\minitoc
+As discussed in \cref{sec:challenges}, the study of additive manufacturing is a rather challenging task, mainly because industrial interests aimed to improve the AM technology are strongly related to issues that span over a wide length scale, from meso--scale to the atomistic level. Many phenomena that play a central role in the entire manufacturing process require the synergic collaboration of different approaches to obtain meaningful results.
+
+We can summarize the previous statement in the following way: applications at the industrial level frequently encounters a series of metallurgical problems that firstly are to be fully understood to improve quality features of AM produced parts; on the other hand, AM processes are way to complicated to be directly studied by means of atomistic simulations and for this reason several phase field models have been developed to give more useful guidelines to industrial applications. However, in many cases even phase field models lack important knowledge of fundamental phenomena occurring, for example, during phase transitions or other basic physical properties. It is in the latter context that atomistic simulations can give a precious contribution. The following table is a sort of prospectus on the link between problems typically encountered at the industrial level, meso--scale study of AM and atomistic simulations. In this section on future research work we will explain a bit in detail how we want to study each of these topics.
+
+\begin{table}[tb]
+\centering
+\caption{Summary table on frequent issues met on the industrial side and related approaches of different nature.}
+\label{tab:modeling_roadmap}
+\begin{tabularx}{\textwidth}{*{3}{X}}
+\toprule
+    \textbf{Metallurgical problems} & \textbf{Meso--scale approach} & \textbf{Atomistic parameters} \\
+    \midrule
+    Solute trapping & Redistribution coefficient & Interface mobility and diffusion matrix \\
+    Gibbs--Marangoni effect & Convection, fluid flow simulation & Viscosity as a function of temperature\\
+    Anisotropic growth (i.e.\ dendritic regime) & $\gamma$ dependence on orientation & Anisotropy of $\gamma$ \\
+    Nucleation rate & Nucleation rate using classical nucleation theory and Avrami model & $\gamma$, enthalpy of melting, dependence of $\gamma$ on temperature and concentrations\\
+    \bottomrule 
+\end{tabularx}
+\end{table}
 
 \section{Fundamental properties of real alloy systems}
 
