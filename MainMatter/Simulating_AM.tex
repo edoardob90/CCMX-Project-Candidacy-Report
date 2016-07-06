@@ -81,12 +81,12 @@ The foremost motivation to employ simulations to study the conditions materials 
 
 
 
-\section{Focus on interfacial properties}
-During first--order phase transition such as nucleation and growth, interfacial properties play a central role. In particular, the interfacial free energy between the solid and the liquid phase (usually indicated with $\gamma_{sl}$) controls the barrier for nucleation of solid in an undercooled liquid and the crystal growth, which can present different regimes: planar, cellular and dendritic, the latter of particular interest for metals.
+%\section{Focus on interfacial properties}
+%During first--order phase transition such as nucleation and growth, interfacial properties play a central role. In particular, the interfacial free energy between the solid and the liquid phase (usually indicated with $\gamma_{sl}$) controls the barrier for nucleation of solid in an undercooled liquid and the crystal growth, which can present different regimes: planar, cellular and dendritic, the latter of particular interest for metals.
 
 %Despite its importance from both theoretical models and practical applications, an accurate calculation of $\gamma_{sl}$ is a rather complicated task even for the case of simple elements. Furthermore, on the experimental side, few techniques aimed at measuring this quantity are complicated by the very strict control on all experimental parameters that must be achieved to obtain accurate data.% One method, for example, involves recovering $\gamma_{sl}$ from nucleation--rate measurements: in this particular case, a major difficulty arises from the possible occurrence of heterogeneous nucleation from very low--concentration of impurities.
 
-Several computational methods have been developed to calculate $\gamma_{sl}$, where a complete control on the experimental variables is possible. These methods are the \emph{capillary fluctuation method} (CFM), different sorts of so--called \emph{cleaving methods} (CMs) and approaches based on \emph{classical nucleation theory} (CNT). All these schemes largely rely on molecular dynamics in conjunction with Monte Carlo simulations.
+%Several computational methods have been developed to calculate $\gamma_{sl}$, where a complete control on the experimental variables is possible. These methods are the \emph{capillary fluctuation method} (CFM), different sorts of so--called \emph{cleaving methods} (CMs) and approaches based on \emph{classical nucleation theory} (CNT). All these schemes largely rely on molecular dynamics in conjunction with Monte Carlo simulations.
 
 %Recently, approaches of this kind coupled with the accelerated sampling technique of metadynamics have been presented: the key idea is to obtain $\gamma_{sl}$ from a free--energy map of the phase transition reconstructed by metadynamics~\cite{Angioletti-Uberti2010}, allowing also to investigate solidification and melting in out--of--equilibrium conditions~\cite{Cheng2015}, much more relevant for experiments and mesoscale models of solidification (including additive manufacturing processes).
 
@@ -113,10 +113,9 @@ Several computational methods have been developed to calculate $\gamma_{sl}$, wh
 
 
 
-\subsection{Capillary fluctuations and free energies\label{sec:CFM}}
+\section{Capillary fluctuations and free energies\label{sec:CFM}}
 
-The capillary fluctuation method was firstly introduced by Asta and coworkers~\cite{HoytPRL2001:CFM} in 2001 and employs an analysis of height fluctuations
-of the solid--liquid interface at equilibrium to extract the interface stiffness, $\sigma$.
+Interfacial properties, such as interfacial free energy between the solid and the liquid phase, play a central role when dealing with phenomena of nucleation and growth. Among many methods developed to study this class of properties, the \textit{capillary fluctuation method}, introduced by~\textcite{HoytPRL2001:CFM} in 2001 employs an analysis of height fluctuations of the solid--liquid interface at equilibrium to extract the interface stiffness, $\sigma$.
 
 In purely mathematical terms, the stiffness can be defined as the second--order coefficient of the power expansion of the free energy with respect to orientation. In this context, orientation means an instantaneous angle (or two of those if we deal with a 2D surface, as explained later) by which the normal of the interface is tilted with respect to the axes of the chosen coordinate system (usually a Cartesian system). From a physical point of view, the stiffness is related to the energy cost of bending the surface.
 

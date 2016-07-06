@@ -1,11 +1,11 @@
 \chapter{Proposed research plan}
 As discussed in \cref{sec:challenges}, the study of additive manufacturing is a rather challenging task, mainly because industrial interests aimed to improve the AM technology are strongly related to issues that span over a wide length scale, from meso--scale to the atomistic level. Many phenomena that play a central role in the entire manufacturing process require the synergic collaboration of different approaches to obtain meaningful results.
 
-We can summarize the previous statement in the following way: applications at the industrial level frequently encounters a series of metallurgical problems that firstly are to be fully understood to improve quality features of AM produced parts; on the other hand, AM processes are way to complicated to be directly studied by means of atomistic simulations and for this reason several phase field models have been developed to give more useful guidelines to industrial applications. However, in many cases even phase field models lack important knowledge of fundamental phenomena occurring, for example, during phase transitions or other basic physical properties. It is in the latter context that atomistic simulations can give a precious contribution. The following table is a sort of prospectus on the link between problems typically encountered at the industrial level, meso--scale study of AM and atomistic simulations. In this section on future research work we will explain a bit in detail how we want to study each of these topics.
+We can summarize the previous statement in the following way: applications at the industrial level frequently encounters a series of metallurgical problems that firstly are to be fully understood to improve quality features of AM produced parts; on the other hand, AM processes are way to complicated to be directly studied by means of atomistic simulations and for this reason several phase field models have been developed to give more useful guidelines to industrial applications. However, in many cases even phase field models lack important knowledge of fundamental phenomena occurring, for example, during phase transitions or other basic physical properties. It is in the latter context that atomistic simulations can give a precious contribution. \Cref{tab:modeling_roadmap} is a sort of prospectus on the link between problems typically encountered at the industrial level, meso--scale study of AM and atomistic simulations. In this section on future research work we will explain a bit in detail how we want to study each of these topics.
 
 \begin{table}[tb]
 \centering
-\caption{Summary table on frequent issues met on the industrial side and related approaches of different nature.}
+\caption{Summary table on frequent issues met on the industrial side and related computational approaches.}
 \label{tab:modeling_roadmap}
 \begin{tabularx}{\textwidth}{*{3}{X}}
 \toprule
@@ -19,8 +19,40 @@ We can summarize the previous statement in the following way: applications at th
 \end{tabularx}
 \end{table}
 
-\section{Fundamental properties of real alloy systems}
+During the first year of the PhD program, a considerable amount of time was devoted to getting familiar with the state--of--the--art about AM: its features as an innovative manufacturing process, the mechanisms presently used for processing metallic and related materials and a special focus on current challenges. The project is partially funded by several important companies active in the field of industrial manufacturing, so the issues reported in \cref{tab:modeling_roadmap} are those of particular interest at the industrial level. Furthermore, this first part also included the study of most commonly used metal alloys for industrial applications of interest. 
 
-\section{Interface related properties}
+A second task addressed during the first year involved the development and implementation of the revisited capillary fluctuation method with the aim of calculating the stiffness for different surfaces for an FCC system at the melting temperature. The comparison with results already present in literature shown a reasonable agreement (see \cref{sec:results}).
 
-\section{Timelines}
+
+
+\section{Topics of future work}
+
+\subsection{Fundamental properties of real alloy systems}
+The first future goal of the project will be to employ semi--empirical potentials and to model real alloy systems, namely Ni--Al--Cr and later Au--Ag--Cu. By means of molecular dynamics simulations, the aim is to extract useful informations on fundamental properties of the bulk liquid, like viscosity as a function of temperature and the so--called diffusion matrix. The latter plays the same role of the diffusion coefficient of a simple system, but in this case it takes into account the presence of more than one chemical species. All these properties do not require new method development and standard techniques of molecular simulation can be employed to extract them.
+
+In this phase, much more emphasis will be given to the interatomic potential employed to model as accurately as possible these real systems. For metals and alloys, a well established choice involves the \textit{embedded atom method} (EAM) potentials, developed in 1983 by~\textcite{Daw1983EAM,Daw1984EAM} and subsequently improved by~\textcite{Finnis1984EAM} in 1984 and by~\textcite{Lee2000}, the latter to include second nearest neighbour interactions. EAM is the first choice for doing semi--empirical calculations in close--packed metals and related compounds such as alloys, because it combines the computational simplicity needed for large systems with a physical description of the underlying interactions that includes many--body effects, which are completely ignored in a pair--bond model.
+
+The idea behind EAM is to write the total energy of a metal as a sum of energies obtained by inserting an atom into the local electron density produced by the remaining atoms of the system. Since we are dealing with charged particles, there is an additional pair term that takes into account electrostatic interaction. The expression of the atomic energy in the scheme of Finnis and Sinclair is something like
+\begin{equation}
+    \label{eqn:EAM1}
+    E_i= F_\alpha\left(\sum_{j\neq i} \rho_{\alpha\beta} (r_{ij}) \right) + \frac{1}{2} \sum_{j\neq i} \phi_{\alpha\beta}(r_{ij})
+\end{equation}
+Here $F_\alpha$ is the embedding energy, defined as the interaction of the atom $i$ of type $\alpha$ with the background electron gas; $\rho_{\alpha\beta}$ is the averaged atom electron density (a functional specific to the atomic types of both atoms) and $\phi$ is the pairwise term taking into account electrostatic interaction. The background density for each atom is determined by evaluating at its nucleus the superposition of atomic density tails from the other atoms.
+
+When dealing with alloys, the EAM presents a practical advantage: the pairwise term involves only two atoms at a time and therefore can be calculated from the binary interactions involved in the ternary system in question. The embedding functions are defined separately for each of the components of the system and does not require any additional fitting beyond that done for pure components. Also the local electronic density depends only on the strength of each individual contributions of each of the three components. It follows that if EAM potentials are available for the three binary systems involved in a particular ternary, it is in theory possible to describe also the ternary system. The only requirement is that the interatomic interaction used for each of the pure components in the description of the two binaries involving that constituent be the same. However, even though in the original work of~\textcite{Daw1984EAM} were given mixing rules to obtain $\rho_{\alpha\beta}$ and $\phi_{\alpha\beta}$ for any alloy once known the corresponding functions for the elemental systems, it was soon made clear that this approximation was not enough to produce reliable and transferable potentials with the desired accuracy and the EAM was then revisited to include directly the fit to properties of the complex system of interest.
+
+
+
+\subsection{Interface related properties}
+During first--order phase transition such as nucleation and growth, interfacial properties play a central role. In particular, the interfacial free energy between the solid and the liquid phase (usually indicated with $\gamma_{sl}$) controls the barrier for nucleation of solid in an undercooled liquid and the crystal growth, which can present different regimes: planar, cellular and dendritic, the latter of particular interest for metals.
+
+Despite its importance from both theoretical models and practical applications, an accurate calculation of $\gamma_{sl}$ is a rather complicated task even for the case of simple elements. Furthermore, on the experimental side, few techniques aimed at measuring this quantity are complicated by the very strict control on all experimental parameters that must be achieved to obtain accurate data.% One method, for example, involves recovering $\gamma_{sl}$ from nucleation--rate measurements: in this particular case, a major difficulty arises from the possible occurrence of heterogeneous nucleation from very low--concentration of impurities.
+
+Several computational methods have been developed to calculate $\gamma_{sl}$, where a complete control on the experimental variables is possible. These methods includes the already discusses \emph{capillary fluctuation method}, different sorts of so--called \emph{cleaving methods} (CMs) and approaches based on \emph{classical nucleation theory} (CNT). All these schemes largely rely on molecular dynamics in conjunction with Monte Carlo simulations.
+
+Recently, approaches of this kind coupled with the accelerated sampling technique of metadynamics have been presented: the key idea is to obtain $\gamma_{sl}$ from a free--energy map of the phase transition reconstructed by metadynamics~\cite{Angioletti-Uberti2010}, allowing also to investigate solidification and melting in out--of--equilibrium conditions~\cite{Cheng2015}, much more relevant for experiments and mesoscale models of solidification (including additive manufacturing processes).
+
+
+
+
+\subsection{Timelines}
