@@ -76,15 +76,15 @@ Having explained all the technical details, we present in this section the resul
 Since (100) is a highly symmetric surface for the FCC system, it can be shown that the following relations hold for the stiffness tensor, $\sigma$: $\sigma_{11}=\sigma_{22}$ and $\sigma_{12}$ is zero. \Cref{tab:stiffness} summarizes the results obtained and compares them with the values of~\textcite{Becker2009:CFM2D}\footnote{In this work, the fitting model is a symmetry--consistent model, that is for the (100) only one value of the stiffness tensor was considered. The model is identical to the one used for one--dimensional interfaces.}.
 \begin{table}[tb]
     \centering
-    \caption{Stiffness values calculated by our method at \num{0.6185} reduced temperature for (100) and (110) interfaces. Units on stiffness are $(\epsilon/\sigma^2)$. The values obtained by Becker at the same temperature are also reported for comparison (95\% confidence level on the last digit).}
+    \caption{Stiffness values calculated by our method at \num{0.6185} reduced temperature for (100) interface. Units on stiffness are $(\epsilon/\sigma^2)$. The values obtained by Becker at the same temperature are also reported for comparison (95\% confidence level on the last digit).}
     \begin{tabular}{lccccc}
         \toprule
         \multirow{2}*{Interface  $(hkl)$} & \multicolumn{3}{c}{Present work} & \multicolumn{2}{c}{Ref.~\cite{Becker2009:CFM2D}}\\
         \cmidrule(r){2-4}\cmidrule(l){5-6}
         & $\sigma_{11}$ & $\sigma_{22}$ & $\sigma_{12}$ & $\sigma_{11}$ & $\sigma_{22}$\\
         \midrule
-        $(100)$ & $0.2897\pm \num{8.0e-4}$ & $0.2871\pm \num{7.0e-4}$ &\num{4.6e-18} & \num{0.2866} & -- \\
-        $(110)$ & $\num{0.379}\pm \num{1.0e-3}$  & $\num{0.316}\pm \num{1.0e-3} $ & \num{1.13e-19} & \num{0.431} & \num{0.305} \\
+        $(100)$ & $0.2897\pm \num{8.0e-4}$ & $0.2871\pm \num{7.0e-4}$ &\num{4.6e-18} & \num{0.2866} & $=\sigma_{11}$ \\
+        %$(110)$ & $\num{0.379}\pm \num{1.0e-3}$  & $\num{0.316}\pm \num{1.0e-3} $ & \num{1.13e-19} & \num{0.431} & \num{0.305} \\
          \bottomrule
     \end{tabular}
     \label{tab:stiffness}
@@ -93,5 +93,5 @@ Since (100) is a highly symmetric surface for the FCC system, it can be shown th
 
 
 
-\subsection{(110) interface}
-The model used to study (110) interface was prepared in the same way as the one for the (100); the only differences are the number of unit cells for each direction of the supercell ($20\times 20\times 30$) and the directions along which the Cartesian axes where aligned: $x$ axis is along $[\bar{1}10]$, $y$ along $[001]$ and $z$ along $[110]$, that is the normal to the interface $(110)$. Incidentally, this is the same configuration adopted by~\textcite{Becker2009:CFM2D}. The results obtained for the stiffness tensor are reported in \cref{tab:stiffness}. In this case, average of the Fourier spectrum was computed with block of 6 frames.
+%\subsection{(110) interface}
+%The model used to study (110) interface was prepared in the same way as the one for the (100); the only differences are the number of unit cells for each direction of the supercell ($20\times 20\times 30$) and the directions along which the Cartesian axes where aligned: $x$ axis is along $[\bar{1}10]$, $y$ along $[001]$ and $z$ along $[110]$, that is the normal to the interface $(110)$. Incidentally, this is the same configuration adopted by~\textcite{Becker2009:CFM2D}. The results obtained for the stiffness tensor are reported in \cref{tab:stiffness}. In this case, average of the Fourier spectrum was computed with block of 6 frames.
