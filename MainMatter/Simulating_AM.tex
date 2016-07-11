@@ -19,9 +19,31 @@ With the aid of computational modeling, there are several key areas which are su
 Among these topics, the first one regarding the fundamental phenomena of melting and solidification is by far the most important. Also, analysis of residual stresses has its starting point with the thermal history of the processed component.
 Besides meso--scale approaches useful to bridge the gap between the modeling phase and actual industrial fabrication, also simulation techniques at the atomic scale can give valuable insights when trying to better understand complicate processes of AM.
 
-%There are several motivations to employ atomistic simulations to study materials under the conditions they are subject to during AM processes. The foremost reason is related to the out--of--equilibrium conditions that are usually the ``scenario'' in which additive manufacturing takes place: in this context atomistic simulations are the most predictive method to investigate these aspects.
-
 The foremost motivation to employ simulations to study the conditions materials undergo during AM processes is related to the predictive power of atomistic simulations in the context of the out--of--equilibrium scenario in which additive manufacturing takes place.
+
+\Cref{tab:modeling_roadmap} is a sort of prospectus on the link between problems typically encountered at the industrial level, meso--scale study of AM and atomistic simulations. The work to date has focused on the interface properties (specifically the determination of interface stiffness), with the development of a new method discussed in detail in \cref{ch:CFM}.
+
+\begin{table}[tb]
+\centering
+\caption{Summary table on frequent issues met on the industrial side and related computational approaches.}
+\label{tab:modeling_roadmap}
+\begin{tabularx}{\textwidth}{*{3}{X}}
+\toprule
+    \textbf{Metallurgical problems} & \textbf{Meso--scale approach} & \textbf{Atomistic parameters} \\
+    \midrule
+    Solute trapping & Redistribution coefficient & Interface mobility and diffusion matrix \\
+    Gibbs--Marangoni effect & Convection, fluid flow simulation & Viscosity as a function of temperature\\
+    Anisotropic growth (i.e.\ dendritic regime) & $\gamma$ dependence on orientation & Anisotropy of $\gamma$ \\
+    Nucleation rate & Nucleation rate using classical nucleation theory and Avrami model & $\gamma$, enthalpy of melting, dependence of $\gamma$ on temperature and concentrations\\
+    \bottomrule 
+\end{tabularx}
+\end{table}
+
+
+
+
+
+%There are several motivations to employ atomistic simulations to study materials under the conditions they are subject to during AM processes. The foremost reason is related to the out--of--equilibrium conditions that are usually the ``scenario'' in which additive manufacturing takes place: in this context atomistic simulations are the most predictive method to investigate these aspects.
 
 %Furthermore, there are some general physical properties that are in common with all AM techniques and atomistic simulations serve as a versatile tool to study in depth all of these properties. In this particular context, ``general'' physical properties means studying: viscosity (and the closely related diffusion coefficient), absorptance and the class of solid--liquid interface properties. We shall discuss these properties briefly in the last part of this section.
 
@@ -53,6 +75,7 @@ The foremost motivation to employ simulations to study the conditions materials 
 
 
 
+
 %%%%%%%%%%%%%%%%%%%
 %%% Open Issues %%%
 %%%%%%%%%%%%%%%%%%%
@@ -67,7 +90,9 @@ The foremost motivation to employ simulations to study the conditions materials 
 %Among particular properties of interests for all AM processes, there are microstructural and mechanical properties and the out of equilibrium phenomenon known as solute trapping. The first two are of primary importance for AM applications and, at the same time, they represent quite broad classes of materials properties. Solute trapping is of peculiar interest when studying solid--liquid interfaces of multi-component systems (e.g.\ ternary or more complex alloys).
 %
 %Mechanical properties of AM processed components are strongly linked to the solidification microstructure. The high--energy laser interaction gives rise to a very fast heating and melting of materials, which is inevitably followed by a rapid solidification on cooling. Laser--based AM processes normally offer high heating and cooling rates ($\sim\SI{100}{K/s}$)~\cite{Wright2006:GuREVIEW166} at the solid--liquid interface, producing a molten pool of quite small size ($\sim\SI{1}{mm}$)~\cite{Childs2005:GuREVIEW167}. Furthermore, the rates of quenching that occur by conduction of heat through the substrate are fast enough to produce a rapid solidification microstructure. Therefore, as a characteristic of AM processed materials, grain refinement is generally expected, due to an insufficient time for grain development and growth.
-%Moreover, either chemical concentration or temperature gradients in the molten pool may generate surface tension gradient, making the solidification a non--steady state process (due to the so--called ``Gibbs--Marangoni effect''). On the other hand, rapid solidification has the kinetic limitation of crystal growth that normally follows the direction of maximum heat flow. The simultaneous but competitive action of the above two mechanisms, i.e.\ a non--equilibrium solidification nature and a localized directional growth tendency, may lead to a variety of crystal orientations with a short--range regularity~\cite{Becker2009:GuREVIEW157}. Therefore, metallic materials processed by AM may present intrinsic, more or less, anisotropic features.
+%Moreover, either chemical concentration or temperature gradients in the molten pool may generate su\Cref{tab:modeling_roadmap} is a sort of prospectus on the link between problems typically encountered at the industrial level, meso--scale study of AM and atomistic simulations. In this section on future research work we will explain a bit in detail how we want to study each of these topics.
+
+%rface tension gradient, making the solidification a non--steady state process (due to the so--called ``Gibbs--Marangoni effect''). On the other hand, rapid solidification has the kinetic limitation of crystal growth that normally follows the direction of maximum heat flow. The simultaneous but competitive action of the above two mechanisms, i.e.\ a non--equilibrium solidification nature and a localized directional growth tendency, may lead to a variety of crystal orientations with a short--range regularity~\cite{Becker2009:GuREVIEW157}. Therefore, metallic materials processed by AM may present intrinsic, more or less, anisotropic features.
 %
 %Another important issue concerning mechanical properties of AM--processed materials is related to the residual stresses (i.e.\ stresses that remain inside a material, when it has reached equilibrium with its environment) that arise in the parts being produced. Residual stresses may impose some serious limitations to the practical use, since they introduce part deformations and/or micro cracks. Moreover, large residual stresses can limit the load resistance of the parts compared to a stress--free state.
 %
@@ -112,8 +137,15 @@ The foremost motivation to employ simulations to study the conditions materials 
 
 
 
-
 \section{Capillary fluctuations and free energies\label{sec:CFM}}
+
+%During first--order phase transition such as nucleation and growth, interfacial properties play a central role. In particular, the interfacial free energy between the solid and the liquid phase (usually indicated with $\gamma_{sl}$) controls the barrier for nucleation of solid in an undercooled liquid and the crystal growth, which can present different regimes: planar, cellular and dendritic, the latter of particular interest for metals.
+
+%Despite its importance from both theoretical models and practical applications, an accurate calculation of $\gamma_{sl}$ is a rather complicated task even for the case of simple elements. Furthermore, on the experimental side, few techniques aimed at measuring this quantity are complicated by the very strict control on all experimental parameters that must be achieved to obtain accurate data.% One method, for example, involves recovering $\gamma_{sl}$ from nucleation--rate measurements: in this particular case, a major difficulty arises from the possible occurrence of heterogeneous nucleation from very low--concentration of impurities.
+
+%Several computational methods have been developed to calculate $\gamma_{sl}$, where a complete control on the experimental variables is possible. These methods includes the already discussed \emph{capillary fluctuation method}, different sorts of so--called \emph{cleaving methods} (CMs) and approaches based on \emph{classical nucleation theory} (CNT). All these schemes largely rely on molecular dynamics in conjunction with Monte Carlo simulations.
+
+%Recently, approaches of this kind coupled with the accelerated sampling technique of metadynamics have been presented: the key idea is to obtain $\gamma_{sl}$ from a free--energy map of the phase transition reconstructed by metadynamics~\cite{Angioletti-Uberti2010}, allowing also to investigate solidification and melting in out--of--equilibrium conditions~\cite{Cheng2015}, much more relevant for experiments and mesoscale models of solidification (including additive manufacturing processes).
 
 Interfacial properties, such as interfacial free energy between the solid and the liquid phase, play a central role when dealing with phenomena of nucleation and growth. Among many methods developed to study this class of properties, the \textit{capillary fluctuation method}, introduced by~\textcite{HoytPRL2001:CFM} in 2001 employs an analysis of height fluctuations of the solid--liquid interface at equilibrium to extract the interface stiffness, $\sigma$.
 
