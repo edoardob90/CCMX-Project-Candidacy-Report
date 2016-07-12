@@ -26,6 +26,7 @@
 \usepackage{xspace}
 \usepackage[all,cmtip]{xy}
 \usepackage{tabularx}
+\usepackage{pdflscape,pgfgantt,rotating}
 
 % set depth of ToC
 \setcounter{secnumdepth}{2}
@@ -59,3 +60,7 @@
 \definecolor{gray75}{gray}{0.75}
 \newcommand{\hsp}{\hspace{10pt}}
 \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
+% Save text height for landscape figures
+\newlength\Textht
+\setlength\Textht{\textheight}
